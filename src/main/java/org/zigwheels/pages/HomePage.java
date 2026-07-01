@@ -22,6 +22,9 @@ public class HomePage extends StandardCode {
     @FindBy(xpath = "//a[@title='Used Cars']")
     WebElement usedCars;
 
+    @FindBy(xpath = "//div[@id='des_lIcon']")
+    WebElement login;
+
     public void clickNewBikes() {
         clickElement(newBikes);
         System.out.println("NEW BIKES clicked");
@@ -40,4 +43,10 @@ public class HomePage extends StandardCode {
         clickByJS(usedCars);
         System.out.println("Used Cars clicked");
     }
+
+    public void clickLogin(){
+        super.clickByJS(login);
+    }
+
+
 }
