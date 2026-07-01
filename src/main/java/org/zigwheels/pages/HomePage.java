@@ -17,18 +17,13 @@ public class HomePage extends StandardCode {
     WebElement upcomingBikes;
 
     public void clickNewBikes() {
-
         clickElement(newBikes);
-
         System.out.println("NEW BIKES clicked");
     }
 
     public void clickUpcmngBikes() {
-
         waitForVisibility(upcomingBikes);
-
         clickElement(upcomingBikes);
-
         System.out.println("Upcoming Bikes clicked");
     }
 }
