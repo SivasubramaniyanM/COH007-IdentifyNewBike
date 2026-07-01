@@ -1,0 +1,10 @@
+<suite name="Suite">
+    <!--    <listeners>-->
+    <!--        <listener class-name="utilities.ExtentReportManager"/>-->
+    <!--    </listeners>-->
+    <test name="Test">
+        <classes>
+            <class name="org.zigwheels.test.TC_1GetURL"/>
+        </classes>
+    </test>
+</suite>
