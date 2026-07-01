@@ -8,6 +8,7 @@
             <class name="org.zigwheels.test.TC_2GetUpcomingBike"/>
             <class name="org.zigwheels.test.TC_3SelectHondaBrand"/>
             <class name="org.zigwheels.test.TC_12GetUsedCars"/>
+            <class name="org.zigwheels.test.TC_13SelectCityName"/>
         </classes>
     </test>
 </suite>
