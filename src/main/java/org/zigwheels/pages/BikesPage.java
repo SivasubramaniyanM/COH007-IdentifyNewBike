@@ -23,13 +23,3 @@ public class BikesPage extends StandardCode {
         clickByJS(hondaLink);
     }
 }
-//    public void clickHondaBrand() {
-//
-//        js.executeScript(
-//                "arguments[0].scrollIntoView({block:'center'});",
-//                hondaLink
-//        );
-//
-//        js.executeScript("arguments[0].click();", hondaLink);
-//
-//    }
