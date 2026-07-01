@@ -5,6 +5,9 @@
     <test name="Test">
         <classes>
             <class name="org.zigwheels.test.TC_1GetURL"/>
+            <class name="org.zigwheels.test.TC_2GetUpcomingBike"/>
+            <class name="org.zigwheels.test.TC_3SelectHondaBrand"/>
+            <class name="org.zigwheels.test.TC_12GetUsedCars"/>
         </classes>
     </test>
 </suite>
