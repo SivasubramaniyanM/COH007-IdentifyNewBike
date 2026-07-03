@@ -29,23 +29,36 @@ public class BikesPage extends CommonCode {
     @FindBy(xpath = "//ul[@id='modelList']/li//*[contains(text(),'Launch')]")
     List<WebElement> bikeLaunchDates;
 
+    @FindBy(xpath = "//a[contains(@href,'/bikes/dealers/Chennai')]")
+    WebElement chennai;
+
+    @FindBy(xpath = "//a[contains(text(),'Hero Moto Corp')]")
+    WebElement heroMotoCorp;
+
+    @FindBy(xpath="//div[contains(@class,'deal-crd')]")
+    List<WebElement> dealerCards;
+
     // ---------- Page Actions ----------
 
-    /** Click on the Honda brand link */
+    /**
+     * Click on the Honda brand link
+     */
     public void clickHondaBrand() {
         waitForVisibility(hondaLink);
         scrollIntoView(hondaLink);
         clickByJS(hondaLink);
     }
 
-    /** Print details of all Honda bikes */
+    /**
+     * Print details of all Honda bikes
+     */
     public void getHondaBikeDetails() {
         System.out.println("Total Bikes Found : " + hondaBikes.size());
 
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
-                String bikeName   = bikeNames.get(i).getText();
-                String price      = bikePrices.get(i).getText();
+                String bikeName = bikeNames.get(i).getText();
+                String price = bikePrices.get(i).getText();
                 String launchDate = bikeLaunchDates.get(i).getText();
 
                 System.out.println("Bike " + (i + 1));
@@ -59,14 +72,16 @@ public class BikesPage extends CommonCode {
         }
     }
 
-    /** Print Honda bikes with price under 4 Lakhs */
+    /**
+     * Print Honda bikes with price under 4 Lakhs
+     */
     public void getHondaBikesUnder4Lakhs() {
         int bikeNumber = 1;
 
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
-                String bikeName   = bikeNames.get(i).getText();
-                String priceText  = bikePrices.get(i).getText();
+                String bikeName = bikeNames.get(i).getText();
+                String priceText = bikePrices.get(i).getText();
                 String launchDate = bikeLaunchDates.get(i).getText();
 
                 double priceInRupees;
@@ -97,10 +112,44 @@ public class BikesPage extends CommonCode {
             } catch (Exception e) {
                 // skip bikes with missing details
             }
+        }
+    }
 
 
+    public void clickChennai() {
+        waitForVisibility(chennai);
+        scrollIntoView(chennai);
+        clickByJS(chennai);
+        System.out.println("Chennai selected");
+    }
 
+    public void clickHeroMotoCorp() {
+        waitForVisibility(heroMotoCorp);
+        scrollIntoView(heroMotoCorp);
+        clickByJS(heroMotoCorp);
+        System.out.println("Hero Moto Corp clicked");
+    }
+
+    public void getHeroDealerDetails() {
+        int count = Math.min(5, dealerCards.size());
+        System.out.println("Displaying First " + count + " Dealers");
+        for (int i = 0; i < count; i++) {
+            try {
+                System.out.println("================================");
+                System.out.println("Dealer Number : " + (i + 1));
+                System.out.println(dealerCards.get(i).getText());
+                System.out.println("================================");
+            } catch (Exception e) {
+                System.out.println("Unable to fetch Dealer " + (i + 1));
+            }
         }
     }
 }
+
+
+
+
+
+
+
 

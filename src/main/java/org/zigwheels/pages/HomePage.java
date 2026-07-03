@@ -107,4 +107,13 @@ public class HomePage extends CommonCode {
     public boolean validateExcellentEmoji() {
         return excellentEmoji.isDisplayed();
     }
+    @FindBy(linkText = "Bike Dealers")
+    WebElement bikeDealers;
+
+    public void clickBikeDealers() {
+        waitForVisibility(bikeDealers);
+        clickElement(bikeDealers);
+        System.out.println("Bike Dealers clicked");
+    }
+
 }
