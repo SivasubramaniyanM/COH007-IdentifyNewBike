@@ -182,6 +182,81 @@ public class BikesPage extends CommonCode {
             return -1;
         }
     }
+    public List<String> getHondaBikeNamesUnder4Lakhs() {
+
+        List<String> names = new ArrayList<>();
+
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String priceText = bikePrices.get(i).getText();
+                double priceInRupees = convertPrice(priceText);
+
+                if (priceInRupees > 0 && priceInRupees < 400000) {
+                    names.add(bikeNames.get(i).getText());
+                }
+            } catch (Exception e) {
+                // skip
+            }
+        }
+        return names;
+    }
+
+    public List<String> getHondaBikePricesUnder4Lakhs() {
+
+        List<String> prices = new ArrayList<>();
+
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String priceText = bikePrices.get(i).getText();
+                double priceInRupees = convertPrice(priceText);
+
+                if (priceInRupees > 0 && priceInRupees < 400000) {
+                    prices.add(priceText);
+                }
+            } catch (Exception e) {
+                // skip
+            }
+        }
+        return prices;
+    }
+
+    public List<String> getHondaBikeDatesUnder4Lakhs() {
+
+        List<String> dates = new ArrayList<>();
+
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String priceText = bikePrices.get(i).getText();
+                double priceInRupees = convertPrice(priceText);
+
+                if (priceInRupees > 0 && priceInRupees < 400000) {
+                    dates.add(bikeLaunchDates.get(i).getText());
+                }
+            } catch (Exception e) {
+                // skip
+            }
+        }
+        return dates;
+    }
+
+    private double convertPrice(String priceText) {
+        try {
+            if (priceText.contains("Lakh")) {
+                return Double.parseDouble(
+                        priceText.replace("Rs.", "")
+                                .replace("Lakh", "")
+                                .replace(",", "")
+                                .trim()) * 100000;
+            } else {
+                return Double.parseDouble(
+                        priceText.replace("Rs.", "")
+                                .replace(",", "")
+                                .trim());
+            }
+        } catch (Exception e) {
+            return -1;
+        }
+    }
 
     public List<String> getUnrevealedLaunchDateBikes() {
 
