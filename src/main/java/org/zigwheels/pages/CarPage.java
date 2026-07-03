@@ -72,11 +72,9 @@ public class CarPage extends CommonCode {
 
     public List<String> getCarNames() {
         List<String> names = new ArrayList<>();
-        for(WebElement car : carNames) {
-            String name = car.getText().trim();
-            if(!name.isEmpty()) {
-                names.add(name);
-            }
+        List<WebElement> cars = carNames;
+        for (WebElement car : cars) {
+            names.add(car.getText());
         }
         return names;
     }
@@ -91,10 +89,16 @@ public class CarPage extends CommonCode {
 
     public List<String> getCarPrices() {
         List<String> prices = new ArrayList<>();
-        for(WebElement price : carPrices) {
-            prices.add(price.getText().trim());
+        List<WebElement> priceElements = carPrices;
+        for (WebElement price : priceElements) {
+            prices.add(price.getText());
         }
         return prices;
+    }
+
+    public void waitForCarsToLoad() {
+        wait.until(driver ->carNames.size() > 0
+        );
     }
 
     public boolean isFiltersDisplayed() {

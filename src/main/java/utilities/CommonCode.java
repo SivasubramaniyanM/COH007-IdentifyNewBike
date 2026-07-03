@@ -12,8 +12,8 @@ import java.time.Duration;
 
 public class CommonCode {
     public WebDriver driver;
-    WebDriverWait wait;
-    JavascriptExecutor js;
+    public WebDriverWait wait;
+    public JavascriptExecutor js;
 
     public CommonCode(WebDriver driver) {
         this.driver = driver;

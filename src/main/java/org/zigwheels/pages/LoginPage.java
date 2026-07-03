@@ -15,7 +15,7 @@ public class LoginPage extends CommonCode {
     }
 
     @FindBy(xpath = "//div[contains(@data-track-label,'Google')]")
-    WebElement google;
+    public WebElement google;
 
     @FindBy(id = "identifierId")
     WebElement email;
