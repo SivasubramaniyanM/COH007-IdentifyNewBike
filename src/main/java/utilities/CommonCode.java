@@ -13,7 +13,7 @@ import java.time.Duration;
 public class CommonCode {
     public WebDriver driver;
     public WebDriverWait wait;
-    public JavascriptExecutor js;
+    JavascriptExecutor js;
 
     public CommonCode(WebDriver driver) {
         this.driver = driver;
@@ -46,5 +46,14 @@ public class CommonCode {
         waitForClickable(element);
         Actions act = new Actions(driver);
         act.moveToElement(element).click().perform();
+    }
+    // Scroll to bottom of page
+    public void scrollToBottom() {
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
+    }
+    public void enterText(WebElement element, String text) {
+        waitForVisibility(element);
+        element.clear();
+        element.sendKeys(text);
     }
 }

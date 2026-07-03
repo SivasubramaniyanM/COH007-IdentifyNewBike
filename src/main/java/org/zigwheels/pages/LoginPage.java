@@ -14,7 +14,7 @@ public class LoginPage extends CommonCode {
         super(driver);
     }
 
-    @FindBy(xpath = "//div[contains(@data-track-label,'Google')]")
+    @FindBy(xpath = "//div[contains(@class,'googleSignIn')]")
     public WebElement google;
 
     @FindBy(id = "identifierId")
