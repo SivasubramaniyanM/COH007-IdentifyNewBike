@@ -1,0 +1,43 @@
+package org.zigwheels.test;
+import java.util.List;
+
+import basetest.BaseTest;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.zigwheels.pages.CarPage;
+import org.zigwheels.pages.HomePage;
+import utilities.Log;
+
+public class TC_14PopularModels extends BaseTest {
+    public static List<String> popularModelsList;
+    @Test
+    public void verifyPopularModels() throws Exception {
+        Log.info("Navigating to Chennai Used Cars page");
+        HomePage hp = new HomePage(driver);
+        hp.clickMore();
+        hp.clickUsedCars();
+        CarPage cp = new CarPage(driver);
+        cp.SearchCity("chennai");
+        cp.clickChennai();
+        String  locationurl = p.getProperty("getchennaiurl");
+        Assert.assertEquals(
+                driver.getCurrentUrl(),
+                locationurl,
+                "Failed to navigate to Chennai Used Cars page");
+        cp.goToPopularModels();
+        Assert.assertTrue(
+                cp.isPopularModelsDisplayed(),
+                "Popular Models section is not displayed");
+        Log.info("Popular Models section is displayed");
+        popularModelsList = cp.getPopularModelNames();
+        System.out.println("========== POPULAR MODELS ==========");
+        for (String model : popularModelsList) {
+            System.out.println(model);
+        }
+        Assert.assertFalse(
+                popularModelsList.isEmpty(),
+                "Popular Models list is empty");
+        Log.info("Total Popular Models Found : " + popularModelsList.size());
+        Log.info("Popular Models section verified and model names extracted successfully");
+    }
+}
