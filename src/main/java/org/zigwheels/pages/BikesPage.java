@@ -1,6 +1,9 @@
 
 package org.zigwheels.pages;
+import java.util.ArrayList;
 import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -143,6 +146,102 @@ public class BikesPage extends CommonCode {
                 System.out.println("Unable to fetch Dealer " + (i + 1));
             }
         }
+    }
+
+    // =====================================================
+    // NEW METHODS (reusing existing locators)
+    // =====================================================
+
+    /**
+     * Convert price text like "Rs. 3.50 Lakh" or "Rs. 1,50,000" to double
+     */
+    private double convertPriceToRupees(String priceText) {
+        try {
+            if (priceText.contains("Lakh")) {
+                return Double.parseDouble(
+                        priceText.replace("Rs.", "")
+                                .replace("Lakh", "")
+                                .replace(",", "")
+                                .trim()
+                ) * 100000;
+            } else if (priceText.contains("Crore")) {
+                return Double.parseDouble(
+                        priceText.replace("Rs.", "")
+                                .replace("Crore", "")
+                                .replace(",", "")
+                                .trim()
+                ) * 10000000;
+            } else {
+                return Double.parseDouble(
+                        priceText.replace("Rs.", "")
+                                .replace(",", "")
+                                .trim()
+                );
+            }
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+    public List<String> getUnrevealedLaunchDateBikes() {
+
+        List<String> unrevealed = new ArrayList<>();
+
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                WebElement card = hondaBikes.get(i);
+                String fullText = card.getText().toLowerCase().trim();
+
+                // Skip empty / non-bike sections
+                if (fullText.isEmpty()) continue;
+                if (fullText.contains("upcoming bikes by brand")) continue;
+
+                // Bike name
+                String name = "";
+                try {
+                    name = card.findElement(
+                                    By.xpath(".//strong | .//h3 | .//a[contains(@class,'title')]"))
+                            .getText().trim();
+                } catch (Exception e) {
+                    continue;
+                }
+
+                // Price
+                String priceText = "";
+                try {
+                    priceText = card.findElement(
+                                    By.xpath(".//*[contains(text(),'Rs.') " +
+                                            "or contains(text(),'Price') " +
+                                            "or contains(text(),'announced')]"))
+                            .getText().trim();
+                } catch (Exception e) {
+                    continue;
+                }
+
+                // Skip if price not confirmed (Price To Be Announced / TBA)
+                if (priceText.toLowerCase().contains("announced")
+                        || priceText.toLowerCase().contains("tba")) {
+                    continue;
+                }
+
+                // Check launch date is unrevealed
+                boolean isUnrevealed =
+                        fullText.contains("unrevealed")
+                                || fullText.contains("not revealed");
+
+                if (!isUnrevealed) continue;
+
+                // Check price is under 4 Lakhs
+                double priceInRupees = convertPriceToRupees(priceText);
+                if (priceInRupees <= 0 || priceInRupees >= 400000) continue;
+
+                // ✅ Add to list (Name + Price only)
+                unrevealed.add(name + " | " + priceText);
+
+            } catch (Exception ignored) {
+            }
+        }
+        return unrevealed;
     }
 }
 
