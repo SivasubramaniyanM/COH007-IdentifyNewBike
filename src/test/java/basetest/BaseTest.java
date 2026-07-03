@@ -32,7 +32,7 @@ public class BaseTest {
         p.load(file);
         logger = LogManager.getLogger(this.getClass());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(p.getProperty("geturl");
+        driver.get(p.getProperty("geturl"));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
