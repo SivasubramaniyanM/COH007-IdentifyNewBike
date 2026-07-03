@@ -43,7 +43,7 @@ public class BaseTest {
 //    }
 
     public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {
-        File screenshotsDir = new File(System.getProperty("user.dir") + "/MajorProject/screenshots");
+        File screenshotsDir = new File(System.getProperty("user.dir") + "/screenshots");
         if (!screenshotsDir.exists()) {
             screenshotsDir.mkdirs();
         }
