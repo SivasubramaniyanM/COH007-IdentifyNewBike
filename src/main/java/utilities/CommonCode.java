@@ -1,5 +1,4 @@
-package org.zigwheels.pages;
-
+package utilities;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,19 +7,17 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 import java.time.Duration;
 
-public class StandardCode {
-
-    WebDriver driver;
+public class CommonCode {
+    public WebDriver driver;
     WebDriverWait wait;
     JavascriptExecutor js;
 
-    public StandardCode(WebDriver driver) {
-
+    public CommonCode(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
-
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         js = (JavascriptExecutor) driver;
     }
@@ -33,21 +30,12 @@ public class StandardCode {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    //    public void scrollIntoView(WebElement element) {
-//
-//        js.executeScript(
-//                "arguments[0].scrollIntoView({behavior:'smooth',block:'center'});",
-//                element
-//        );
-//    }
     public void clickByJS(WebElement element) {
-
         wait.until(ExpectedConditions.visibilityOf(element));
-
         js.executeScript("arguments[0].click();", element);
     }
-    public void scrollIntoView(WebElement element) {
 
+    public void scrollIntoView(WebElement element) {
         js.executeScript(
                 "arguments[0].scrollIntoView(true);",
                 element
@@ -55,9 +43,7 @@ public class StandardCode {
     }
 
     public void clickElement(WebElement element) {
-
         waitForClickable(element);
-
         Actions act = new Actions(driver);
         act.moveToElement(element).click().perform();
     }

@@ -1,11 +1,10 @@
 package org.zigwheels.pages;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import utilities.CommonCode;
 
-public class HomePage extends StandardCode {
-
+public class HomePage extends CommonCode {
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -25,28 +24,29 @@ public class HomePage extends StandardCode {
     @FindBy(xpath = "//div[@id='des_lIcon']")
     WebElement login;
 
+    @FindBy(id = "des_lIcon")
+    WebElement loginIcon;
+
     public void clickNewBikes() {
         clickElement(newBikes);
         System.out.println("NEW BIKES clicked");
     }
+
     public void clickUpcmngBikes() {
         waitForVisibility(upcomingBikes);
         clickElement(upcomingBikes);
         System.out.println("Upcoming Bikes clicked");
     }
-    public void clickMore() {
-        moreMenu.click();
+
+    public void clickMore() { moreMenu.click();
     }
 
     public void clickUsedCars() {
         waitForVisibility(usedCars);
         clickByJS(usedCars);
-        System.out.println("Used Cars clicked");
     }
 
     public void clickLogin(){
         super.clickByJS(login);
     }
-
-
 }

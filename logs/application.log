@@ -1,0 +1,12 @@
+2026-07-02 22:22:20 [main] INFO  Log - === Test Suite Started ===
+2026-07-02 22:22:31 [main] INFO  Log - Test Started : verify_url
+2026-07-02 22:22:31 [main] INFO  Log - Getting URL of the page
+2026-07-02 22:22:31 [main] INFO  Log - Base URL verification completed
+2026-07-02 22:22:31 [main] INFO  Log - Test Passed : verify_url
+2026-07-02 22:22:33 [main] INFO  Log - === Test Suite Finished ===
+2026-07-03 08:41:54 [main] INFO  Log - === Test Suite Started ===
+2026-07-03 08:42:07 [main] INFO  Log - Test Started : verify_url
+2026-07-03 08:42:07 [main] INFO  Log - Getting URL of the page
+2026-07-03 08:42:07 [main] INFO  Log - Base URL verification completed
+2026-07-03 08:42:07 [main] INFO  Log - Test Passed : verify_url
+2026-07-03 08:42:08 [main] INFO  Log - === Test Suite Finished ===
