@@ -1,8 +1,6 @@
 package org.zigwheels.test;
 
 import basetest.BaseTest;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.zigwheels.pages.CarPage;

@@ -310,7 +310,7 @@ public class BikesPage extends CommonCode {
                 double priceInRupees = convertPriceToRupees(priceText);
                 if (priceInRupees <= 0 || priceInRupees >= 400000) continue;
 
-                // ✅ Add to list (Name + Price only)
+                // Add to list (Name + Price only)
                 unrevealed.add(name + " | " + priceText);
 
             } catch (Exception ignored) {

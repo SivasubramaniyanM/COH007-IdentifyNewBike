@@ -4,12 +4,27 @@
         </listeners>
     <test name="Test">
         <classes>
-            <class name="org.zigwheels.test.TC_1GetURL"/>
-<!--            <class name="org.zigwheels.test.TC_2GetUpcomingBike"/>-->
+<!--            <class name="org.zigwheels.test.TC_1GetURL"/>-->
+            <class name="org.zigwheels.test.TC_23InvalidGoogleLogin"/>-->
+<!--             <class name="org.zigwheels.test.TC_2GetUpcomingBike"/>&ndash;&gt;-->
 <!--            <class name="org.zigwheels.test.TC_3SelectHondaBrand"/>-->
+<!--            <class name="org.zigwheels.test.TC_4ExtractHondaBikeDetails"/>-->
+<!--            <class name="org.zigwheels.test.TC_5DisplayHondaBikesUnder4Lakhs"/>&ndash;&gt;-->
+<!--            <class name="org.zigwheels.test.TC_7UnrevealedLaunchBike"/>-->
+<!--            <class name="org.zigwheels.test.TC_8HeroDealerDetails"/>-->
+<!--            <class name="org.zigwheels.test.TC_12GetUsedCars"/>-->
 <!--            <class name="org.zigwheels.test.TC_12GetUsedCars"/>-->
 <!--            <class name="org.zigwheels.test.TC_13SelectCityName"/>-->
+<!--            <class name="org.zigwheels.test.TC_14PopularModels"/>-->
+<!--            <class name="org.zigwheels.test.TC_15HyundaiPopularCarsDetails"/>-->
+<!--            <class name="org.zigwheels.test.TC_16PopularCarsUnder4Lakh"/>-->
+<!--            <class name="org.zigwheels.test.TC_17CheapestAndCostliestCar"/>-->
 <!--            <class name="org.zigwheels.test.TC_22GoogleDisplay"/>-->
+            <class name="org.zigwheels.test.TC_24FeedbackValidation"/>-->
+
+
+
+
         </classes>
     </test>
 </suite>

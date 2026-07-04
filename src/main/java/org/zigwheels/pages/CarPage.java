@@ -1,107 +1,126 @@
 package org.zigwheels.pages;
+
 import java.util.ArrayList;
 import java.util.List;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.CommonCode;
 
 public class CarPage extends CommonCode {
+
     public CarPage(WebDriver driver) {
         super(driver);
     }
 
-    @FindBy(xpath = "//input[@placeholder='Enter Your City']")
+    // ---------- @FindBy elements ----------
+
+    @FindBy(xpath = "//input[contains(@placeholder,'Enter Your City')]")
     WebElement searchBar;
 
     @FindBy(xpath = "//a[@data-value='Chennai']")
     WebElement chennaiEle;
 
-    @FindBy(xpath = "//div[@class='zw-sr-filterWrap']/ul/li[2]/div[2]/div[4]")
+    @FindBy(xpath = "//div[contains(@class,'popularCardBrand')]")
     WebElement popularModelsHeader;
 
-    @FindBy(xpath = "//div[@class='gsc_thin_scroll']//li")
-    List<WebElement> popularModels;
+    @FindBy(xpath = "//div[contains(@class,'popularCardBrand')]//ul/li//a")
+    List<WebElement> popularModelLinks;
 
-    @FindBy(xpath = "//div/a[@data-track-label='Car-name']")
+    @FindBy(xpath = "//a[@data-track-label='Car-name']")
     List<WebElement> carNames;
 
-    @FindBy(xpath = "//div[@class='gsc_thin_scroll']//input[@type='checkbox']")
-    List<WebElement> popularModelCheckboxes;
-
-    @FindBy(xpath = "//span[contains(text(),'Lakh')]")
+    @FindBy(xpath = "//div[contains(@class,'zw-sr-searchTarget')]//*[contains(text(),'Lakh')]")
     List<WebElement> carPrices;
 
-    @FindBy(xpath = "//span[contains(@class,'pull-left zm-cmn-colorBlack')]")
-    WebElement filtersSection;
+    // ---------- Actions ----------
 
     public void SearchCity(String city) {
-        searchBar.sendKeys(city);
+        enterText(searchBar, city);
     }
 
     public void clickChennai() {
-        chennaiEle.click();
+        waitForClickable(chennaiEle);
+        scrollIntoView(chennaiEle);
+        clickByJS(chennaiEle);
+
+        wait.until(d -> {
+            String url = d.getCurrentUrl();
+            return url != null && url.toLowerCase().contains("chennai");
+        });
     }
 
     public void goToPopularModels() {
-        scrollIntoView(popularModelsHeader);
         waitForVisibility(popularModelsHeader);
+        scrollIntoView(popularModelsHeader);
     }
 
     public boolean isPopularModelsDisplayed() {
-        return popularModelsHeader.isDisplayed();
+        try {
+            waitForVisibility(popularModelsHeader);
+            return popularModelsHeader.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public List<String> getPopularModelNames() {
-        List<String> modelNames = new ArrayList<>();
-        for (WebElement model : popularModels) {
-            String modelName = model.getText().trim();
-            if (!modelName.isEmpty()) {
-                modelNames.add(modelName);
-            }
-        }
-        return modelNames;
+        return safeGetTexts(popularModelLinks);
     }
 
     public void clickThirdPopularModel() {
-        if (popularModels.size() >= 3) {
-            scrollIntoView(popularModels.get(2));
-            clickByJS(popularModels.get(2));
+        if (popularModelLinks.size() >= 3) {
+            scrollIntoView(popularModelLinks.get(2));
+            clickByJS(popularModelLinks.get(2));
         }
-    }
-
-    public List<String> getCarNames() {
-        List<String> names = new ArrayList<>();
-        List<WebElement> cars = carNames;
-        for (WebElement car : cars) {
-            names.add(car.getText());
-        }
-        return names;
     }
 
     public void selectAllPopularModels() {
-        for(WebElement checkbox : popularModelCheckboxes) {
-            if(!checkbox.isSelected()) {
-                clickByJS(checkbox);
-            }
+        for (WebElement brand : popularModelLinks) {
+            scrollIntoView(brand);
+            clickByJS(brand);
         }
-    }
-
-    public List<String> getCarPrices() {
-        List<String> prices = new ArrayList<>();
-        List<WebElement> priceElements = carPrices;
-        for (WebElement price : priceElements) {
-            prices.add(price.getText());
-        }
-        return prices;
     }
 
     public void waitForCarsToLoad() {
-        wait.until(driver ->carNames.size() > 0
-        );
+        wait.until(d -> !carNames.isEmpty());
+        wait.until(d -> !carPrices.isEmpty());
+
+        // Wait until car count is stable across two polls
+        wait.until(d -> {
+            int a = carNames.size();
+            int b = carNames.size();
+            return a > 0 && a == b;
+        });
     }
 
-    public boolean isFiltersDisplayed() {
-        return filtersSection.isDisplayed();
+    public List<String> getCarNames() {
+        return safeGetTexts(carNames);
+    }
+
+    public List<String> getCarPrices() {
+        return safeGetTexts(carPrices);
+    }
+
+    // ---------- Helper: retry-on-stale text extraction ----------
+
+    public List<String> safeGetTexts(List<WebElement> elements) {
+        int attempts = 0;
+        while (attempts < 3) {
+            try {
+                List<String> texts = new ArrayList<>();
+                for (WebElement el : elements) {
+                    String txt = el.getText();
+                    if (txt != null && !txt.trim().isEmpty()) {
+                        texts.add(txt.trim());
+                    }
+                }
+                return texts;
+            } catch (StaleElementReferenceException e) {
+                attempts++;
+            }
+        }
+        return new ArrayList<>();
     }
 }
