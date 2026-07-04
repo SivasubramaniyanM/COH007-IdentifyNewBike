@@ -12,7 +12,7 @@ public class TC_15HyundaiPopularCarsDetails extends BaseTest {
     @Test
     public void extractUsedCarDetails() throws Exception {
         Log.info("Navigating to Chennai Used Cars Page");
-        HomePage hp = new HomePage(driver);
+        var hp = new HomePage(driver);
         hp.clickMore();
         hp.clickUsedCars();
         CarPage cp = new CarPage(driver);

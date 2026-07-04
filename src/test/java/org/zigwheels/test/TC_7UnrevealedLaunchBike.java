@@ -4,9 +4,8 @@ import basetest.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.zigwheels.pages.BikesPage;
-import org.zigwheels.pages.HomePage;
 import utilities.Log;
-
+import org.zigwheels.pages.HomePage;
 import java.util.List;
 
 public class TC_7UnrevealedLaunchBike extends BaseTest {

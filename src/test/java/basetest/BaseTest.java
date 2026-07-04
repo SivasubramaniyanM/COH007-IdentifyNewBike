@@ -32,15 +32,15 @@ public class BaseTest {
         p.load(file);
         logger = LogManager.getLogger(this.getClass());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.get(p.getProperty("geturl");
+        driver.get(p.getProperty("geturl"));
         driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-//    @AfterClass
-//    public void tearDown() {
-//        driver.quit();
-//    }
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
+    }
 
     public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {
         File screenshotsDir = new File(System.getProperty("user.dir") + "/screenshots");
