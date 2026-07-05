@@ -34,8 +34,24 @@ public class CommonCode {
         wait.until(ExpectedConditions.visibilityOf(element));
         js.executeScript("arguments[0].click();", element);
     }
-
     public void scrollIntoView(WebElement element) {
+        for (int i = 0; i < 3; i++) {
+            try {
+                js.executeScript(
+                        "arguments[0].scrollIntoView({block:'center'});",
+                        element
+                );
+                return;
+            } catch (org.openqa.selenium.StaleElementReferenceException e) {
+                Log.info("Stale on scrollIntoView, retry " + (i + 1));
+                // Explicit wait instead of Thread.sleep
+                new WebDriverWait(driver, Duration.ofMillis(500))
+                        .ignoring(org.openqa.selenium.StaleElementReferenceException.class);
+            }
+        }
+    }
+
+    public void scrollIntoViewdealer(WebElement element) {
         js.executeScript(
                 "arguments[0].scrollIntoView(true);",
                 element
@@ -56,4 +72,5 @@ public class CommonCode {
         element.clear();
         element.sendKeys(text);
     }
+
 }
