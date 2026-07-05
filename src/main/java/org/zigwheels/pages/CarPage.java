@@ -51,10 +51,18 @@ public class CarPage extends CommonCode {
         });
     }
 
-    public void goToPopularModels() {
-        waitForVisibility(popularModelsHeader);
-        scrollIntoView(popularModelsHeader);
-    }
+  public void goToPopularModels() {
+    WebDriverWait localWait = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+    // Re-locate freshly to avoid stale cached PageFactory element
+    WebElement section = localWait.until(
+            ExpectedConditions.presenceOfElementLocated(
+                    By.xpath("//div[contains(@class,'popularCardBrand')]")));
+
+    scrollIntoView(section);
+
+    localWait.until(ExpectedConditions.visibilityOf(section));
+}
 
     public boolean isPopularModelsDisplayed() {
         try {
