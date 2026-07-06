@@ -7,8 +7,6 @@ import org.zigwheels.pages.HomePage;
 
 public class TC_18CarComparisons extends BaseTest {
     @Test
-
-
     public void CarComparisons() {
         HomePage hp = new HomePage(driver);
         hp.clickNewCars();
