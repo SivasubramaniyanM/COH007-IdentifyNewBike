@@ -41,6 +41,12 @@ public class BikesPage extends CommonCode {
     @FindBy(xpath="//div[contains(@class,'deal-crd')]")
     List<WebElement> dealerCards;
 
+    @FindBy(xpath = "//a[contains(text(),'Under 70000')]")
+    WebElement under70000;
+
+    @FindBy(xpath = "//ul[@id='modelList']//li")
+    List<WebElement> bikes;
+
     // ---------- Page Actions ----------
 
     /**
@@ -317,6 +323,64 @@ public class BikesPage extends CommonCode {
             }
         }
         return unrevealed;
+    }
+    // -----------------------------------------------------
+// Highest Price Bike Name
+// -----------------------------------------------------
+    public String getHighestPriceBikeName() {
+
+        String topBikeName = null;
+        double topPrice = 0.0;
+
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String name = bikeNames.get(i).getText().trim();
+                String priceTxt = bikePrices.get(i).getText().trim();
+
+                double price = convertPriceToRupees(priceTxt);
+                if (price < 0) continue;
+
+                if (price > topPrice) {
+                    topPrice = price;
+                    topBikeName = name;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+        return topBikeName;
+    }
+
+    public String getLowestPriceBikeName() {
+
+        String lowBikeName = null;
+        double lowPrice = Double.MAX_VALUE;
+
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String name = bikeNames.get(i).getText().trim();
+                String priceTxt = bikePrices.get(i).getText().trim();
+
+                double price = convertPriceToRupees(priceTxt);
+                if (price < 0) continue;
+
+                if (price < lowPrice) {
+                    lowPrice = price;
+                    lowBikeName = name;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+        return lowBikeName;
+    }
+
+    public void clickUnder70000() {
+        scrollIntoView(under70000);
+        waitForVisibility(under70000);
+        clickByJS(under70000);
+        System.out.println("Under 70000 clicked");
+    }
+    public int getBikeCount() {;
+        return bikes.size();
     }
 }
 

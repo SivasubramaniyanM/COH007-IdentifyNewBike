@@ -49,6 +49,15 @@ public class HomePage extends CommonCode {
     @FindBy(linkText = "Bike Dealers")
     WebElement bikeDealers;
 
+    @FindBy(linkText = "Latest Bikes")
+    WebElement latestBikes;
+
+    public void clickLatestBikes() {
+        waitForVisibility(latestBikes);
+        clickElement(latestBikes);
+        System.out.println("Latest Bikes clicked");
+    }
+
     public void clickNewBikes() {
         clickElement(newBikes);
         System.out.println("NEW BIKES clicked");
@@ -136,4 +145,5 @@ public class HomePage extends CommonCode {
     public boolean validateExcellentEmoji() {
         return excellentEmoji.isDisplayed();
     }
+
 }

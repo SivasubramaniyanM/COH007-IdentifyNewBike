@@ -320,3 +320,98 @@
 2026-07-04 15:35:03 [main] INFO  Log - Popular Models section is displayed
 2026-07-04 15:35:03 [main] INFO  Log - Total Popular Models Found : 5
 2026-07-04 15:35:03 [main] INFO  Log - Popular Models section verified and model names extracted successfully
+2026-07-06 09:46:55 [main] INFO  Log - Opening Upcoming Bikes Page
+2026-07-06 09:47:20 [main] INFO  Log - Opening Upcoming Bikes Page
+2026-07-06 09:47:29 [main] INFO  Log - Highest Price Bike : Norton Manx R
+2026-07-06 09:47:35 [main] INFO  Log - Lowest Price Bike : 2026 Bajaj Pulsar
+2026-07-06 09:47:35 [main] INFO  Log - High and Low price bikes displayed successfully
+2026-07-06 09:53:14 [main] INFO  Log - Opening Upcoming Bikes Page
+2026-07-06 09:53:24 [main] INFO  Log - Highest Price Bike : Norton Manx R
+2026-07-06 09:53:29 [main] INFO  Log - Lowest Price Bike : 2026 Bajaj Pulsar
+2026-07-06 09:53:29 [main] INFO  Log - High and Low price bikes displayed successfully
+2026-07-06 09:58:27 [main] INFO  Log - === Test Suite Started ===
+2026-07-06 09:58:35 [main] INFO  Log - Test Started : verify_url
+2026-07-06 09:58:35 [main] INFO  Log - Getting URL of the page
+2026-07-06 09:58:35 [main] INFO  Log - Base URL verification completed
+2026-07-06 09:58:35 [main] INFO  Log - Test Passed : verify_url
+2026-07-06 09:58:46 [main] INFO  Log - Test Started : verifyInvalidGoogleLogin
+2026-07-06 09:58:46 [main] INFO  Log - Entering Login Page
+2026-07-06 09:58:47 [main] INFO  Log - Switched to Google Sign-In popup window
+2026-07-06 09:58:53 [main] INFO  Log - Error message displayed : Couldn’t sign you in
+2026-07-06 09:58:53 [main] INFO  Log - Invalid Google Login verified successfully
+2026-07-06 09:58:53 [main] INFO  Log - Test Passed : verifyInvalidGoogleLogin
+2026-07-06 09:59:06 [main] INFO  Log - Test Started : verifyUpcomingBikeURL
+2026-07-06 09:59:06 [main] INFO  Log - Entering Upcoming Bike URL page
+2026-07-06 09:59:09 [main] INFO  Log - Page Title : Upcoming Bikes in India 2026 | Launch Date, Price - ZigWheels
+2026-07-06 09:59:09 [main] INFO  Log - Upcoming Bike URL page verification completed
+2026-07-06 09:59:09 [main] INFO  Log - Test Passed : verifyUpcomingBikeURL
+2026-07-06 09:59:18 [main] INFO  Log - Test Started : selectHondaBrand
+2026-07-06 09:59:22 [main] INFO  Log - Test Passed : selectHondaBrand
+2026-07-06 09:59:31 [main] INFO  Log - Test Started : getHondaBikeDetails
+2026-07-06 09:59:31 [main] INFO  Log - Entering Honda Bikes Page
+2026-07-06 09:59:36 [main] INFO  Log - Honda Bike details extracted successfully
+2026-07-06 09:59:36 [main] INFO  Log - Test Passed : getHondaBikeDetails
+2026-07-06 09:59:43 [main] INFO  Log - Test Started : displayHondaBikesUnder4Lakhs
+2026-07-06 09:59:43 [main] INFO  Log - Opening Honda Bikes Page
+2026-07-06 09:59:53 [main] INFO  Log - Honda Bikes stored in Vehicle.xlsx successfully
+2026-07-06 09:59:53 [main] INFO  Log - Test Passed : displayHondaBikesUnder4Lakhs
+2026-07-06 10:00:01 [main] INFO  Log - Test Started : displayHighAndLowPriceBike
+2026-07-06 10:00:01 [main] INFO  Log - Opening Upcoming Bikes Page
+2026-07-06 10:00:10 [main] INFO  Log - Highest Price Bike : Norton Manx R
+2026-07-06 10:00:19 [main] INFO  Log - Lowest Price Bike : 2026 Bajaj Pulsar
+2026-07-06 10:00:19 [main] INFO  Log - High and Low price bikes displayed successfully
+2026-07-06 10:00:19 [main] INFO  Log - Test Passed : displayHighAndLowPriceBike
+2026-07-06 10:00:29 [main] INFO  Log - Test Started : displayUnrevealedLaunchDateBikes
+2026-07-06 10:00:29 [main] INFO  Log - Opening Upcoming Bikes Page
+2026-07-06 10:00:34 [main] INFO  Log - Total unrevealed Honda bikes under 4 Lakhs : 0
+2026-07-06 10:00:34 [main] INFO  Log - Honda unrevealed launch date bikes verification completed
+2026-07-06 10:00:34 [main] INFO  Log - Test Passed : displayUnrevealedLaunchDateBikes
+2026-07-06 10:00:41 [main] INFO  Log - Test Started : heroDealerDetails
+2026-07-06 10:00:45 [main] INFO  TC_8HeroDealerDetails - Hero dealer details extracted successfully
+2026-07-06 10:00:45 [main] INFO  Log - Test Passed : heroDealerDetails
+2026-07-06 10:00:54 [main] INFO  Log - Test Started : latestBikesUnder70000
+2026-07-06 10:00:58 [main] INFO  TC_9LatestBikesUnder70000 - Under 70000 bikes displayed successfully
+2026-07-06 10:00:58 [main] INFO  Log - Test Passed : latestBikesUnder70000
+2026-07-06 10:01:07 [main] INFO  Log - Test Started : verifyUsedCarsURL
+2026-07-06 10:01:07 [main] INFO  Log - Navigating to Used Cars page
+2026-07-06 10:01:12 [main] INFO  Log - Used Cars URL verification completed
+2026-07-06 10:01:12 [main] INFO  Log - Test Passed : verifyUsedCarsURL
+2026-07-06 10:01:20 [main] INFO  Log - Test Started : GoTocity
+2026-07-06 10:01:20 [main] INFO  Log - Navigating to city page
+2026-07-06 10:01:24 [main] INFO  Log - select city name completed
+2026-07-06 10:01:24 [main] INFO  Log - Test Passed : GoTocity
+2026-07-06 10:01:31 [main] INFO  Log - Test Started : verifyPopularModels
+2026-07-06 10:01:31 [main] INFO  Log - Navigating to Chennai Used Cars page
+2026-07-06 10:01:35 [main] INFO  Log - Popular Models section is displayed
+2026-07-06 10:01:35 [main] INFO  Log - Total Popular Models Found : 5
+2026-07-06 10:01:35 [main] INFO  Log - Popular Models section verified and model names extracted successfully
+2026-07-06 10:01:35 [main] INFO  Log - Test Passed : verifyPopularModels
+2026-07-06 10:01:43 [main] INFO  Log - Test Started : extractUsedCarDetails
+2026-07-06 10:01:43 [main] INFO  Log - Navigating to Chennai Used Cars Page
+2026-07-06 10:01:52 [main] INFO  Log - Total Cars Found : 21
+2026-07-06 10:01:52 [main] INFO  Log - Used car names extracted successfully
+2026-07-06 10:01:52 [main] INFO  Log - Test Passed : extractUsedCarDetails
+2026-07-06 10:02:01 [main] INFO  Log - Test Started : extractCarsUnder4Lakh
+2026-07-06 10:02:01 [main] INFO  Log - Navigating to Chennai Used Cars Page
+2026-07-06 10:02:05 [main] INFO  Log - Total Cars Under 4 Lakh : 3
+2026-07-06 10:02:05 [main] INFO  Log - Test Passed : extractCarsUnder4Lakh
+2026-07-06 10:02:13 [main] INFO  Log - Test Started : findCheapestAndCostliestCar
+2026-07-06 10:02:17 [main] INFO  Log - Cheapest and Costliest cars identified successfully
+2026-07-06 10:02:17 [main] INFO  Log - Test Passed : findCheapestAndCostliestCar
+2026-07-06 10:02:24 [main] INFO  Log - Test Started : isGoogleDisplayed
+2026-07-06 10:02:24 [main] INFO  Log - Entering the Login page
+2026-07-06 10:02:25 [main] INFO  Log - Successfully entered into the Login page
+2026-07-06 10:02:25 [main] INFO  Log - Test Passed : isGoogleDisplayed
+2026-07-06 10:02:33 [main] INFO  Log - Test Started : validateFeedbackSubmission
+2026-07-06 10:02:33 [main] INFO  TC_24FeedbackValidation - Scrolling to feedback section
+2026-07-06 10:02:33 [main] INFO  TC_24FeedbackValidation - Clicking Feedback button
+2026-07-06 10:02:33 [main] INFO  TC_24FeedbackValidation - Validating Angry Emoji
+2026-07-06 10:02:33 [main] INFO  TC_24FeedbackValidation - Validating Excellent Emoji
+2026-07-06 10:02:33 [main] INFO  TC_24FeedbackValidation - Clicking Excellent Emoji
+2026-07-06 10:02:34 [main] INFO  TC_24FeedbackValidation - Validating Feedback Textbox
+2026-07-06 10:02:34 [main] INFO  TC_24FeedbackValidation - Entering Feedback
+2026-07-06 10:02:34 [main] INFO  TC_24FeedbackValidation - Validating Submit Button
+2026-07-06 10:02:34 [main] INFO  TC_24FeedbackValidation - Clicking Submit Button
+2026-07-06 10:02:34 [main] INFO  TC_24FeedbackValidation - Feedback submitted successfully
+2026-07-06 10:02:34 [main] INFO  Log - Test Passed : validateFeedbackSubmission
+2026-07-06 10:02:38 [main] INFO  Log - === Test Suite Finished ===
