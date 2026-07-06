@@ -8,8 +8,7 @@ import org.zigwheels.pages.BikesPage;
 import org.zigwheels.pages.HomePage;
 
 public class TC_8HeroDealerDetails extends BaseTest {
-
-    @Test(priority = 18)
+    @Test
     public void heroDealerDetails() {
         HomePage hp = new HomePage(driver);
         BikesPage bp = new BikesPage(driver);

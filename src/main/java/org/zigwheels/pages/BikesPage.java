@@ -1,8 +1,7 @@
-
 package org.zigwheels.pages;
+
 import java.util.ArrayList;
 import java.util.List;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +14,6 @@ public class BikesPage extends CommonCode {
     public BikesPage(WebDriver driver) {
         super(driver);
     }
-
     // ---------- Web Elements (Locators) ----------
     @FindBy(xpath = "//a[normalize-space()='Honda']")
     WebElement hondaLink;
@@ -47,29 +45,20 @@ public class BikesPage extends CommonCode {
     @FindBy(xpath = "//ul[@id='modelList']//li")
     List<WebElement> bikes;
 
-    // ---------- Page Actions ----------
-
-    /**
-     * Click on the Honda brand link
-     */
+    //Click on the Honda brand link
     public void clickHondaBrand() {
         waitForVisibility(hondaLink);
         scrollIntoView(hondaLink);
         clickByJS(hondaLink);
     }
-
-    /**
-     * Print details of all Honda bikes
-     */
+     //Print details of all Honda bikes
     public void getHondaBikeDetails() {
         System.out.println("Total Bikes Found : " + hondaBikes.size());
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 String bikeName = bikeNames.get(i).getText();
                 String price = bikePrices.get(i).getText();
                 String launchDate = bikeLaunchDates.get(i).getText();
-
                 System.out.println("Bike " + (i + 1));
                 System.out.println("Bike Name   : " + bikeName);
                 System.out.println("Price       : " + price);
@@ -80,19 +69,15 @@ public class BikesPage extends CommonCode {
             }
         }
     }
+     //Print Honda bikes with price under 4 Lakhs
 
-    /**
-     * Print Honda bikes with price under 4 Lakhs
-     */
     public void getHondaBikesUnder4Lakhs() {
         int bikeNumber = 1;
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 String bikeName = bikeNames.get(i).getText();
                 String priceText = bikePrices.get(i).getText();
                 String launchDate = bikeLaunchDates.get(i).getText();
-
                 double priceInRupees;
                 if (priceText.contains("Lakh")) {
                     priceInRupees =
@@ -109,7 +94,6 @@ public class BikesPage extends CommonCode {
                                             .trim()
                             );
                 }
-
                 if (priceInRupees < 400000) {
                     System.out.println("Bike Number : " + bikeNumber);
                     System.out.println("Bike Name   : " + bikeName);
@@ -119,26 +103,21 @@ public class BikesPage extends CommonCode {
                     bikeNumber++;
                 }
             } catch (Exception e) {
-                // skip bikes with missing details
             }
         }
     }
-
-
     public void clickChennai() {
         waitForVisibility(chennai);
         scrollIntoView(chennai);
         clickByJS(chennai);
         System.out.println("Chennai selected");
     }
-
     public void clickHeroMotoCorp() {
         waitForVisibility(heroMotoCorp);
         scrollIntoView(heroMotoCorp);
         clickByJS(heroMotoCorp);
         System.out.println("Hero Moto Corp clicked");
     }
-
     public void getHeroDealerDetails() {
         int count = Math.min(5, dealerCards.size());
         System.out.println("Displaying First " + count + " Dealers");
@@ -153,14 +132,8 @@ public class BikesPage extends CommonCode {
             }
         }
     }
+    //Convert price text like "Rs. 3.50 Lakh" or "Rs. 1,50,000" to double
 
-    // =====================================================
-    // NEW METHODS (reusing existing locators)
-    // =====================================================
-
-    /**
-     * Convert price text like "Rs. 3.50 Lakh" or "Rs. 1,50,000" to double
-     */
     private double convertPriceToRupees(String priceText) {
         try {
             if (priceText.contains("Lakh")) {
@@ -189,52 +162,39 @@ public class BikesPage extends CommonCode {
         }
     }
     public List<String> getHondaBikeNamesUnder4Lakhs() {
-
         List<String> names = new ArrayList<>();
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 String priceText = bikePrices.get(i).getText();
                 double priceInRupees = convertPrice(priceText);
-
                 if (priceInRupees > 0 && priceInRupees < 400000) {
                     names.add(bikeNames.get(i).getText());
                 }
             } catch (Exception e) {
-                // skip
             }
         }
         return names;
     }
-
     public List<String> getHondaBikePricesUnder4Lakhs() {
-
         List<String> prices = new ArrayList<>();
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 String priceText = bikePrices.get(i).getText();
                 double priceInRupees = convertPrice(priceText);
-
                 if (priceInRupees > 0 && priceInRupees < 400000) {
                     prices.add(priceText);
                 }
             } catch (Exception e) {
-                // skip
             }
         }
         return prices;
     }
-
     public List<String> getHondaBikeDatesUnder4Lakhs() {
-
         List<String> dates = new ArrayList<>();
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 String priceText = bikePrices.get(i).getText();
                 double priceInRupees = convertPrice(priceText);
-
                 if (priceInRupees > 0 && priceInRupees < 400000) {
                     dates.add(bikeLaunchDates.get(i).getText());
                 }
@@ -244,7 +204,6 @@ public class BikesPage extends CommonCode {
         }
         return dates;
     }
-
     private double convertPrice(String priceText) {
         try {
             if (priceText.contains("Lakh")) {
@@ -263,20 +222,15 @@ public class BikesPage extends CommonCode {
             return -1;
         }
     }
-
     public List<String> getUnrevealedLaunchDateBikes() {
-
         List<String> unrevealed = new ArrayList<>();
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 WebElement card = hondaBikes.get(i);
                 String fullText = card.getText().toLowerCase().trim();
-
                 // Skip empty / non-bike sections
                 if (fullText.isEmpty()) continue;
                 if (fullText.contains("upcoming bikes by brand")) continue;
-
                 // Bike name
                 String name = "";
                 try {
@@ -286,7 +240,6 @@ public class BikesPage extends CommonCode {
                 } catch (Exception e) {
                     continue;
                 }
-
                 // Price
                 String priceText = "";
                 try {
@@ -298,48 +251,36 @@ public class BikesPage extends CommonCode {
                 } catch (Exception e) {
                     continue;
                 }
-
                 // Skip if price not confirmed (Price To Be Announced / TBA)
                 if (priceText.toLowerCase().contains("announced")
                         || priceText.toLowerCase().contains("tba")) {
                     continue;
                 }
-
                 // Check launch date is unrevealed
                 boolean isUnrevealed =
                         fullText.contains("unrevealed")
                                 || fullText.contains("not revealed");
-
                 if (!isUnrevealed) continue;
-
                 // Check price is under 4 Lakhs
                 double priceInRupees = convertPriceToRupees(priceText);
                 if (priceInRupees <= 0 || priceInRupees >= 400000) continue;
-
                 // Add to list (Name + Price only)
                 unrevealed.add(name + " | " + priceText);
-
             } catch (Exception ignored) {
             }
         }
         return unrevealed;
     }
-    // -----------------------------------------------------
-// Highest Price Bike Name
-// -----------------------------------------------------
+    // Highest Price Bike Name
     public String getHighestPriceBikeName() {
-
         String topBikeName = null;
         double topPrice = 0.0;
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 String name = bikeNames.get(i).getText().trim();
                 String priceTxt = bikePrices.get(i).getText().trim();
-
                 double price = convertPriceToRupees(priceTxt);
                 if (price < 0) continue;
-
                 if (price > topPrice) {
                     topPrice = price;
                     topBikeName = name;
@@ -349,20 +290,15 @@ public class BikesPage extends CommonCode {
         }
         return topBikeName;
     }
-
     public String getLowestPriceBikeName() {
-
         String lowBikeName = null;
         double lowPrice = Double.MAX_VALUE;
-
         for (int i = 0; i < hondaBikes.size(); i++) {
             try {
                 String name = bikeNames.get(i).getText().trim();
                 String priceTxt = bikePrices.get(i).getText().trim();
-
                 double price = convertPriceToRupees(priceTxt);
                 if (price < 0) continue;
-
                 if (price < lowPrice) {
                     lowPrice = price;
                     lowBikeName = name;
@@ -372,7 +308,6 @@ public class BikesPage extends CommonCode {
         }
         return lowBikeName;
     }
-
     public void clickUnder70000() {
         scrollIntoView(under70000);
         waitForVisibility(under70000);

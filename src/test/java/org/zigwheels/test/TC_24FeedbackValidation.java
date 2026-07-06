@@ -13,29 +13,15 @@ public class TC_24FeedbackValidation extends BaseTest {
         hp.scrollToFeedback();
         logger.info("Clicking Feedback button");
         hp.clickFeedback();
-        logger.info("Validating Angry Emoji");
-        logger.info("Validating Excellent Emoji");
-        Assert.assertTrue(
-                hp.validateExcellentEmoji(),
-                "Excellent Emoji is not displayed"
-        );
+        Assert.assertTrue(hp.validateExcellentEmoji(), "Excellent Emoji is not displayed");
         logger.info("Clicking Excellent Emoji");
         hp.clickExcellentEmoji();
-
         logger.info("Validating Feedback Textbox");
-        Assert.assertTrue(
-                hp.validateFeedbackTextBox(),
-                "Feedback Textbox is not displayed"
-        );
+        Assert.assertTrue(hp.validateFeedbackTextBox(), "Feedback Textbox is not displayed");
         logger.info("Entering Feedback");
-        hp.enterFeedback(
-                "Website navigation is simple and user friendly."
-        );
+        hp.enterFeedback("Website navigation is simple and user friendly.");
         logger.info("Validating Submit Button");
-        Assert.assertTrue(
-                hp.validateSubmitButton(),
-                "Submit Button is not displayed"
-        );
+        Assert.assertTrue(hp.validateSubmitButton(), "Submit Button is not displayed");
         logger.info("Clicking Submit Button");
         hp.clickSubmit();
         logger.info("Feedback submitted successfully");

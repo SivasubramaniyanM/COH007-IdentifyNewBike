@@ -67,47 +67,43 @@ public class HomePage extends CommonCode {
     @FindBy(xpath = "//*[@id='latest_user_review']//li")
     List<WebElement> userReviews;
 
+    @FindBy(xpath = "//nav[@class='headerNav']/ul/li[2]/span")
+    WebElement newCars;
 
-
+    @FindBy(xpath="//a[text()='Car Comparisons']")
+    WebElement carComparisons;
 
     public void clickLatestBikes() {
         waitForVisibility(latestBikes);
         clickElement(latestBikes);
         System.out.println("Latest Bikes clicked");
     }
-
     public void clickNewBikes() {
         clickElement(newBikes);
         System.out.println("NEW BIKES clicked");
     }
-
     public void clickUpcmngBikes() {
         waitForVisibility(upcomingBikes);
         clickElement(upcomingBikes);
         System.out.println("Upcoming Bikes clicked");
     }
-
     public void clickBikeDealers() {
         waitForVisibility(bikeDealers);
         clickElement(bikeDealers);
         System.out.println("Bike Dealers clicked");
     }
-
     public void clickMore() {
         moreMenu.click();
     }
-
     public void clickUsedCars() {
         waitForVisibility(usedCars);
         clickByJS(usedCars);
     }
-
     public void hoverMore() {
         waitForVisibility(moreMenu);
         scrollIntoView(moreMenu);
         new Actions(driver).moveToElement(moreMenu).perform();
     }
-
     public void hoverAndClickUsedCars() {
         new Actions(driver)
                 .moveToElement(moreMenu)
@@ -121,49 +117,38 @@ public class HomePage extends CommonCode {
             return url != null && url.toLowerCase().contains("used-car");
         });
     }
-
     public void clickLogin() {
         super.clickByJS(login);
     }
-
     public void scrollToFeedback() {
         scrollToBottom();
     }
-
     public void clickFeedback() {
         clickByJS(feedbackBtn);
     }
-
     public void enterFeedback(String feedback) {
         enterText(feedbackComment, feedback);
     }
-
     public void enterText(WebElement element, String text) {
         waitForVisibility(element);
         element.clear();
         element.sendKeys(text);
     }
-
     public void clickSubmit() {
         clickElement(submitBtn);
     }
-
     public void clickExcellentEmoji() {
         clickElement(excellentEmoji);
     }
-
     public boolean validateFeedbackTextBox() {
         return feedbackComment.isDisplayed();
     }
-
     public boolean validateSubmitButton() {
         return submitBtn.isDisplayed();
     }
-
     public boolean validateExcellentEmoji() {
         return excellentEmoji.isDisplayed();
     }
-
     public void scrollToTopContributors() {
         scrollIntoView(topContributorsSection);
     }
@@ -178,7 +163,6 @@ public class HomePage extends CommonCode {
         }
         return contributors;
     }
-
     public void scrollToLatestUserReviews() {
         scrollIntoView(latestUserReviewsSection);
     }
@@ -193,5 +177,11 @@ public class HomePage extends CommonCode {
             }
         }
         return reviews;
+    }
+    public void clickNewCars() {
+        clickElement(newCars);
+    }
+    public void clickCarComparisons() {
+        clickElement(carComparisons);
     }
 }

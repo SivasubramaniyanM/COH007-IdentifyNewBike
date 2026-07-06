@@ -1,8 +1,6 @@
 package org.zigwheels.test;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import basetest.BaseTest;
 import org.zigwheels.pages.BikesPage;
 import org.zigwheels.pages.HomePage;

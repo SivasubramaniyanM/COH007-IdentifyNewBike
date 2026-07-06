@@ -9,7 +9,6 @@ import utilities.Log;
 public class TC_12GetUsedCars extends BaseTest {
     @Test
     public void verifyUsedCarsURL()throws InterruptedException {
-
         Log.info("Navigating to Used Cars page");
         HomePage hp = new HomePage(driver);
         hp.clickMore();

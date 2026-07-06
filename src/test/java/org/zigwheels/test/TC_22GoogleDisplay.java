@@ -15,7 +15,7 @@ public class TC_22GoogleDisplay extends BaseTest {
         hp.clickLogin();
         LoginPage lp=new LoginPage(driver);
         boolean google = lp.google.isDisplayed();
-        Assert.assertTrue(true);
+        Assert.assertTrue(google);
         Log.info("Successfully entered into the Login page");
         System.out.println("Successfully entered into the Login page");
     }

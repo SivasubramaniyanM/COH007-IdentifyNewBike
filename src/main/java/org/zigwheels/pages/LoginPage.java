@@ -32,7 +32,6 @@ public class LoginPage extends CommonCode {
         waitForVisibility(google);
         clickByJS(google);
     }
-
     public void enterInvalidEmail(String invalidEmail) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         WebElement emailField = wait.until(
@@ -42,11 +41,9 @@ public class LoginPage extends CommonCode {
         emailField.clear();
         emailField.sendKeys(invalidEmail);
     }
-
     public String getEnteredEmail() {
         return email.getAttribute("value");
     }
-
     public void clickNext() {
         clickByJS(next);
     }

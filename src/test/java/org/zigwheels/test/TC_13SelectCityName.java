@@ -20,9 +20,6 @@ public class TC_13SelectCityName extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(),"https://www.zigwheels.com/used-car/Chennai");
         Log.info("select city name completed");
         System.out.println("select city name completed");
-
-
-
     }
 }
 
