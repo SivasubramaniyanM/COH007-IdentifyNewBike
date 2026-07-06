@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -43,9 +44,27 @@ public class BikesPage extends CommonCode {
 
     // ---------- Page Actions ----------
 
+<<<<<<< Updated upstream
     /**
      * Click on the Honda brand link
      */
+=======
+    @FindBy(xpath = "//ul[@id='modelList']//li")
+    List<WebElement> bikes;
+
+    @FindBy(id="headerSearch")
+    WebElement searchBox;
+
+    @FindBy(xpath="//h1")
+    WebElement bikeName;
+    @FindBy(xpath="//h1[contains(normalize-space(),'Ola Electric Bikes')]")
+    WebElement olaelectric;
+
+    @FindBy(xpath="//div[text()='Ola Electric']")
+    WebElement olabike;
+
+    //Click on the Honda brand link
+>>>>>>> Stashed changes
     public void clickHondaBrand() {
         waitForVisibility(hondaLink);
         scrollIntoView(hondaLink);
@@ -318,6 +337,78 @@ public class BikesPage extends CommonCode {
         }
         return unrevealed;
     }
+<<<<<<< Updated upstream
+=======
+    // Highest Price Bike Name
+    public String getHighestPriceBikeName() {
+        String topBikeName = null;
+        double topPrice = 0.0;
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String name = bikeNames.get(i).getText().trim();
+                String priceTxt = bikePrices.get(i).getText().trim();
+                double price = convertPriceToRupees(priceTxt);
+                if (price < 0) continue;
+                if (price > topPrice) {
+                    topPrice = price;
+                    topBikeName = name;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+        return topBikeName;
+    }
+    public String getLowestPriceBikeName() {
+        String lowBikeName = null;
+        double lowPrice = Double.MAX_VALUE;
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String name = bikeNames.get(i).getText().trim();
+                String priceTxt = bikePrices.get(i).getText().trim();
+                double price = convertPriceToRupees(priceTxt);
+                if (price < 0) continue;
+                if (price < lowPrice) {
+                    lowPrice = price;
+                    lowBikeName = name;
+                }
+            } catch (Exception ignored) {
+            }
+        }
+        return lowBikeName;
+    }
+    public void clickUnder70000() {
+        scrollIntoView(under70000);
+        waitForVisibility(under70000);
+        clickByJS(under70000);
+        System.out.println("Under 70000 clicked");
+    }
+    public int getBikeCount() {;
+        return bikes.size();
+    }
+    public void searchHondaActiva125() {
+
+        waitForVisibility(searchBox);
+
+        searchBox.sendKeys("Honda Activa 125");
+        searchBox.sendKeys(Keys.ENTER);
+
+        System.out.println("Honda Activa 125 searched");
+    }
+
+    public String getBikeName() {
+        waitForVisibility(bikeName);
+        return bikeName.getText().trim();
+    }
+    public  void electricbike(){
+        scrollIntoViewdealer(olabike);
+        clickByJS(olabike);
+    }
+
+    public String olabike() {
+        waitForVisibility(olaelectric);
+        return olaelectric.getText().trim();
+    }
+>>>>>>> Stashed changes
 }
 
 

@@ -49,11 +49,59 @@ public class HomePage extends CommonCode {
     @FindBy(linkText = "Bike Dealers")
     WebElement bikeDealers;
 
+<<<<<<< Updated upstream
+=======
+    @FindBy(linkText = "Latest Bikes")
+    WebElement latestBikes;
+
+    @FindBy(xpath = "//div[@id='qns-tctrc']//h3")
+    WebElement topContributorsSection;
+
+    @FindBy(xpath = "//*[@id='topLikeList']/li/div[2]/div[1]")
+    List<WebElement> contributorNames;
+
+    @FindBy(xpath = "//*[@id='latest_user_review']/div/h2")
+    WebElement latestUserReviewsSection;
+
+    @FindBy(xpath = "//*[@id='latest_user_review']//li")
+    List<WebElement> userReviews;
+
+    @FindBy(xpath = "//nav[@class='headerNav']/ul/li[2]/span")
+    WebElement newCars;
+
+    @FindBy(xpath="//a[text()='Car Comparisons']")
+    WebElement carComparisons;
+    @FindBy(xpath="//a[contains(text(),'Search New Bikes')]")
+    WebElement search;
+    @FindBy(xpath="//a[contains(text(),'Electric Bikes')]")
+    WebElement ElectricBikes;
+
+    public void clickLatestBikes() {
+        waitForVisibility(latestBikes);
+        clickElement(latestBikes);
+        System.out.println("Latest Bikes clicked");
+    }
+>>>>>>> Stashed changes
     public void clickNewBikes() {
         clickElement(newBikes);
         System.out.println("NEW BIKES clicked");
     }
+<<<<<<< Updated upstream
 
+=======
+        public void SearchHonda(){
+            waitForVisibility(search);
+            clickElement(search);
+            System.out.println("Search New Bike clicked");
+
+        }
+    public void electricbike(){
+        waitForVisibility(ElectricBikes);
+        clickElement(ElectricBikes);
+        System.out.println("Electric Bike clicked");
+
+    }
+>>>>>>> Stashed changes
     public void clickUpcmngBikes() {
         waitForVisibility(upcomingBikes);
         clickElement(upcomingBikes);
