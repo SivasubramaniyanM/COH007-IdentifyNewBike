@@ -3,6 +3,7 @@ package org.zigwheels.pages;
 import java.util.ArrayList;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -44,6 +45,17 @@ public class BikesPage extends CommonCode {
 
     @FindBy(xpath = "//ul[@id='modelList']//li")
     List<WebElement> bikes;
+
+    @FindBy(id="headerSearch")
+    WebElement searchBox;
+
+    @FindBy(xpath="//h1")
+    WebElement bikeName;
+    @FindBy(xpath="//h1[contains(normalize-space(),'Ola Electric Bikes')]")
+    WebElement olaelectric;
+
+    @FindBy(xpath="//div[text()='Ola Electric']")
+    WebElement olabike;
 
     //Click on the Honda brand link
     public void clickHondaBrand() {
@@ -316,6 +328,29 @@ public class BikesPage extends CommonCode {
     }
     public int getBikeCount() {;
         return bikes.size();
+    }
+    public void searchHondaActiva125() {
+
+        waitForVisibility(searchBox);
+
+        searchBox.sendKeys("Honda Activa 125");
+        searchBox.sendKeys(Keys.ENTER);
+
+        System.out.println("Honda Activa 125 searched");
+    }
+
+    public String getBikeName() {
+        waitForVisibility(bikeName);
+        return bikeName.getText().trim();
+    }
+    public  void electricbike(){
+        scrollIntoViewdealer(olabike);
+        clickByJS(olabike);
+    }
+
+    public String olabike() {
+        waitForVisibility(olaelectric);
+        return olaelectric.getText().trim();
     }
 }
 

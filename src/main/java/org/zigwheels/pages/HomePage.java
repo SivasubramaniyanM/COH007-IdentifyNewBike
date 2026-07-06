@@ -72,6 +72,10 @@ public class HomePage extends CommonCode {
 
     @FindBy(xpath="//a[text()='Car Comparisons']")
     WebElement carComparisons;
+    @FindBy(xpath="//a[contains(text(),'Search New Bikes')]")
+    WebElement search;
+    @FindBy(xpath="//a[contains(text(),'Electric Bikes')]")
+    WebElement ElectricBikes;
 
     public void clickLatestBikes() {
         waitForVisibility(latestBikes);
@@ -81,6 +85,18 @@ public class HomePage extends CommonCode {
     public void clickNewBikes() {
         clickElement(newBikes);
         System.out.println("NEW BIKES clicked");
+    }
+        public void SearchHonda(){
+            waitForVisibility(search);
+            clickElement(search);
+            System.out.println("Search New Bike clicked");
+
+        }
+    public void electricbike(){
+        waitForVisibility(ElectricBikes);
+        clickElement(ElectricBikes);
+        System.out.println("Electric Bike clicked");
+
     }
     public void clickUpcmngBikes() {
         waitForVisibility(upcomingBikes);

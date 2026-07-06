@@ -415,3 +415,29 @@
 2026-07-06 10:02:34 [main] INFO  TC_24FeedbackValidation - Feedback submitted successfully
 2026-07-06 10:02:34 [main] INFO  Log - Test Passed : validateFeedbackSubmission
 2026-07-06 10:02:38 [main] INFO  Log - === Test Suite Finished ===
+2026-07-06 12:12:51 [main] INFO  Log - === Test Suite Started ===
+2026-07-06 12:13:10 [main] INFO  Log - Test Started : verify_url
+2026-07-06 12:13:10 [main] INFO  Log - Getting URL of the page
+2026-07-06 12:13:10 [main] INFO  Log - Base URL verification completed
+2026-07-06 12:13:10 [main] INFO  Log - Test Passed : verify_url
+2026-07-06 12:13:16 [main] INFO  Log - Test Started : verifyInvalidGoogleLogin
+2026-07-06 12:13:16 [main] INFO  Log - Entering Login Page
+2026-07-06 13:53:59 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 13:55:12 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 13:58:32 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:09:05 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:13:14 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:13:16 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:13:40 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:24:34 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:24:36 [main] INFO  Log - Honda Activa 125 verified successfully
+2026-07-06 14:25:06 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:25:09 [main] INFO  Log - Honda Activa 125 verified successfully
+2026-07-06 14:26:29 [main] INFO  Log - Searching the Honda Bike
+2026-07-06 14:26:35 [main] INFO  Log - Honda Activa 125 verified successfully
+2026-07-06 14:44:25 [main] INFO  Log - Entering The Electric Bike
+2026-07-06 14:46:03 [main] INFO  Log - Entering The Electric Bike
+2026-07-06 14:51:57 [main] INFO  Log - Entering The Electric Bike
+2026-07-06 14:53:03 [main] INFO  Log - Entering The Electric Bike
+2026-07-06 15:09:04 [main] INFO  Log - Entering The Electric Bike
+2026-07-06 15:11:07 [main] INFO  Log - Entering The Electric Bike
