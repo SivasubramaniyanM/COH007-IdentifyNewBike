@@ -67,8 +67,11 @@ public class HomePage extends CommonCode {
     @FindBy(xpath = "//*[@id='latest_user_review']//li")
     List<WebElement> userReviews;
 
+    @FindBy(xpath = "//nav[@class='headerNav']/ul/li[2]/span")
+    WebElement newCars;
 
-
+    @FindBy(xpath="//a[text()='Car Comparisons']")
+    WebElement carComparisons;
 
     public void clickLatestBikes() {
         waitForVisibility(latestBikes);
@@ -193,5 +196,13 @@ public class HomePage extends CommonCode {
             }
         }
         return reviews;
+    }
+
+    public void clickNewCars() {
+        clickElement(newCars);
+    }
+
+    public void clickCarComparisons() {
+        clickElement(carComparisons);
     }
 }
