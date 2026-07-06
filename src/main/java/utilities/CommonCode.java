@@ -12,8 +12,13 @@ import java.time.Duration;
 
 public class CommonCode {
     public WebDriver driver;
+<<<<<<< Updated upstream
     WebDriverWait wait;
     JavascriptExecutor js;
+=======
+    public WebDriverWait wait;
+    public JavascriptExecutor js;
+>>>>>>> Stashed changes
 
     public CommonCode(WebDriver driver) {
         this.driver = driver;

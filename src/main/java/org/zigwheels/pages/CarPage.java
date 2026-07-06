@@ -32,8 +32,45 @@ public class CarPage extends CommonCode {
     @FindBy(xpath = "//span[contains(text(),'Lakh')]")
     List<WebElement> carPrices;
 
+<<<<<<< Updated upstream
     @FindBy(xpath = "//span[contains(@class,'pull-left zm-cmn-colorBlack')]")
     WebElement filtersSection;
+=======
+    @FindBy(xpath="(//a[contains(@title,'Compare')])[1]")
+    WebElement addCar1;
+    @FindBy(xpath="(//a[contains(@title,'Compare')])[2]")
+    WebElement addCar2;
+
+    @FindBy(xpath="//a[contains(@id,'editCar')]")
+    WebElement pencilIcon;
+
+    @FindBy(xpath="//input[@placeholder='Search Brand/Model']")
+    WebElement brandOrModel;
+
+    @FindBy(xpath="//input[@placeholder='Search Variant']")
+    WebElement variant;
+
+    @FindBy(xpath="//div[@class='col-sm-12 txt-c clr']/a")
+    WebElement compareCarsBtn;
+
+    @FindBy(xpath = "//tr[td[contains(text(),'Ex-Showroom Price')]]/td[2]")
+    WebElement car1Price;
+
+    @FindBy(xpath = "//tr[td[contains(text(),'Ex-Showroom Price')]]/td[3]")
+    WebElement car2Price;
+
+    @FindBy(xpath = "(//tr[td[contains(text(),'Engine Displacement')]]/td[2])[1]")
+    WebElement car1CC;
+
+    @FindBy(xpath = "(//tr[td[contains(text(),'Engine Displacement')]]/td[3])[1]")
+    WebElement car2CC;
+
+    @FindBy(xpath = "//h2[contains(text(),'Key Highlights')]")
+    WebElement comparisonHeading;
+
+
+    // ---------- Actions ----------
+>>>>>>> Stashed changes
 
     public void SearchCity(String city) {
         searchBar.sendKeys(city);
@@ -100,4 +137,84 @@ public class CarPage extends CommonCode {
     public boolean isFiltersDisplayed() {
         return filtersSection.isDisplayed();
     }
+<<<<<<< Updated upstream
 }
+=======
+    public void clickAddOrEditCar1() {
+        try {
+            clickElement(addCar1);
+        } catch(Exception e) {
+            clickElement(pencilIcon);
+        }
+    }
+
+    public void clickAddOrEditCar2() {
+        try {
+            wait.until(
+                    ExpectedConditions.visibilityOfElementLocated(
+                            By.xpath("//*[contains(text(),'Add Car 2')]")
+                    )
+            ).click();
+        } catch(Exception e) {
+            clickElement(pencilIcon);
+        }
+    }
+
+    public void selectCar(String brandOrModelName,
+                          String variantName) {
+        waitForVisibility(brandOrModel);
+        brandOrModel.click();
+        brandOrModel.clear();
+        brandOrModel.sendKeys(brandOrModelName);
+        WebElement carOption = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//*[contains(text(),'"
+                                + brandOrModelName + "')]")
+                )
+        );
+        carOption.click();
+        waitForVisibility(variant);
+        variant.click();
+        variant.clear();
+        variant.sendKeys(variantName);
+        WebElement variantOption = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//*[contains(text(),'"
+                                + variantName + "')]")
+                )
+        );
+        variantOption.click();
+    }
+
+    public void clickCompareCars() {
+        WebElement compareButton = wait.until(
+                ExpectedConditions.elementToBeClickable(
+                        By.xpath("//div[@class='col-sm-12 txt-c clr']/a")
+                )
+        );
+        js.executeScript("arguments[0].click();", compareButton);
+    }
+
+    public String getComparisonHeading() {
+        return comparisonHeading.getText();
+    }
+
+    public void displayPriceAndCCComparison() {
+        scrollIntoView(car1Price);
+        System.out.println("===== PRICE COMPARISON =====");
+        System.out.println(
+                "Car 1 Price : " + car1Price.getText()
+        );
+        System.out.println(
+                "Car 2 Price : " + car2Price.getText()
+        );
+        System.out.println("\n===== ENGINE DISPLACEMENT =====");
+        System.out.println(
+                "Car 1 CC : " + car1CC.getText()
+        );
+        System.out.println(
+                "Car 2 CC : " + car2CC.getText()
+        );
+    }
+}
+>>>>>>> Stashed changes
