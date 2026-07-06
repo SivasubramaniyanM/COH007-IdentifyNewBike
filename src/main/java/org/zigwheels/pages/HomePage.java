@@ -6,6 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import utilities.CommonCode;
+import java.io.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class HomePage extends CommonCode {
 
@@ -51,6 +54,21 @@ public class HomePage extends CommonCode {
 
     @FindBy(linkText = "Latest Bikes")
     WebElement latestBikes;
+
+    @FindBy(xpath = "//div[@id='qns-tctrc']//h3")
+    WebElement topContributorsSection;
+
+    @FindBy(xpath = "//*[@id='topLikeList']/li/div[2]/div[1]")
+    List<WebElement> contributorNames;
+
+    @FindBy(xpath = "//*[@id='latest_user_review']/div/h2")
+    WebElement latestUserReviewsSection;
+
+    @FindBy(xpath = "//*[@id='latest_user_review']//li")
+    List<WebElement> userReviews;
+
+
+
 
     public void clickLatestBikes() {
         waitForVisibility(latestBikes);
@@ -146,4 +164,34 @@ public class HomePage extends CommonCode {
         return excellentEmoji.isDisplayed();
     }
 
+    public void scrollToTopContributors() {
+        scrollIntoView(topContributorsSection);
+    }
+    public List<String> getTopContributorNames() {
+        waitForVisibility(topContributorsSection);
+        List<String> contributors = new ArrayList<>();
+        for (WebElement contributor : contributorNames) {
+            String name = contributor.getText().trim();
+            if (!name.isEmpty()) {
+                contributors.add(name);
+            }
+        }
+        return contributors;
+    }
+
+    public void scrollToLatestUserReviews() {
+        scrollIntoView(latestUserReviewsSection);
+    }
+    public List<String> getFirstThreeReviews() {
+        waitForVisibility(latestUserReviewsSection);
+        List<String> reviews = new ArrayList<>();
+        int reviewCount = Math.min(3, userReviews.size());
+        for (int i = 0; i < reviewCount; i++) {
+            String review = userReviews.get(i).getText().trim();
+            if (!review.isEmpty()) {
+                reviews.add(review);
+            }
+        }
+        return reviews;
+    }
 }
