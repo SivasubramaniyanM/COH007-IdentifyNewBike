@@ -283,4 +283,23 @@ public class CarPage extends CommonCode {
                 "Car 2 CC : " + car2CC.getText()
         );
     }
+<<<<<<< HEAD
+=======
+
+    @FindBy(xpath = "//a[contains(text(),'Under 10 Lakh')]")
+    WebElement under10Lakh;
+
+    @FindBy(xpath = "//h1[contains(text(),'Electric Cars Under 10 Lakhs')]")
+    WebElement under10LakhHeading;
+
+    public void clickUnder10Lakh() {
+        scrollIntoView(under10Lakh);
+        waitForVisibility(under10Lakh);
+        clickByJS(under10Lakh);
+    }
+    public String getUnder10LakhHeading() {
+        waitForVisibility(under10LakhHeading);
+        return under10LakhHeading.getText().trim();
+    }
+>>>>>>> Nandhakumar
 }

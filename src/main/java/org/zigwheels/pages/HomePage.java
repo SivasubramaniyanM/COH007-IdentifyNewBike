@@ -103,6 +103,11 @@ public class HomePage extends CommonCode {
         clickElement(upcomingBikes);
         System.out.println("Upcoming Bikes clicked");
     }
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> Nandhakumar
     public void clickBikeDealers() {
         waitForVisibility(bikeDealers);
         clickElement(bikeDealers);
@@ -200,4 +205,19 @@ public class HomePage extends CommonCode {
     public void clickCarComparisons() {
         clickElement(carComparisons);
     }
+<<<<<<< HEAD
+=======
+
+    @FindBy(linkText = "Electric Cars")
+    WebElement electricCars;
+
+    public void clickElectricCars() {
+        waitForVisibility(electricCars);
+        clickElement(electricCars);
+    }
+
+
+
+>>>>>>> Stashed changes
+>>>>>>> Nandhakumar
 }

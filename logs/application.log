@@ -441,3 +441,17 @@
 2026-07-06 14:53:03 [main] INFO  Log - Entering The Electric Bike
 2026-07-06 15:09:04 [main] INFO  Log - Entering The Electric Bike
 2026-07-06 15:11:07 [main] INFO  Log - Entering The Electric Bike
+<<<<<<< HEAD
+=======
+2026-07-06 15:39:25 [main] INFO  Log - ===== Verify Electric Cars Under 10 Lakhs Page =====
+2026-07-06 15:39:25 [main] INFO  Log - Clicked New Cars
+2026-07-06 15:39:37 [main] INFO  Log - Clicked Electric Cars
+2026-07-06 15:40:08 [main] INFO  Log - ===== Verify Electric Cars Under 10 Lakhs Page =====
+2026-07-06 15:40:08 [main] INFO  Log - Clicked New Cars
+2026-07-06 15:40:11 [main] INFO  Log - Clicked Electric Cars
+2026-07-06 15:42:26 [main] INFO  Log - ===== Verify Electric Cars Under 10 Lakhs Page =====
+2026-07-06 15:42:26 [main] INFO  Log - Clicked New Cars
+2026-07-06 15:42:30 [main] INFO  Log - Clicked Electric Cars
+2026-07-06 15:42:31 [main] INFO  Log - Clicked Under 10 Lakh
+2026-07-06 15:42:31 [main] INFO  Log - Successfully verified Electric Cars Under 10 Lakhs page
+>>>>>>> Nandhakumar
