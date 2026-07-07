@@ -55,11 +55,6 @@ public class TC_23InvalidGoogleLogin extends BaseTest {
         takeScreenShot(driver, "InvalidGoogleLoginError");
         File screenshotFile = new File(System.getProperty("user.dir") + "/screenshots/InvalidGoogleLoginError.png");
 
-        // Verify screenshot exists
-        File screenshotFile = new File(
-                System.getProperty("user.dir")
-                        + "/screenshots/InvalidGoogleLoginError.png"
-        );
         Log.info("Invalid Google Login verified successfully");
 
     }
