@@ -197,12 +197,8 @@ public class HomePage extends CommonCode {
         }
         return reviews;
     }
-    public void clickNewCars() {
-        clickElement(newCars);
-    }
-    public void clickCarComparisons() {
-        clickElement(carComparisons);
-    }
+   
+   
     public void clickCarOffer(){
         super.clickByJS(CarOffer);
     }
