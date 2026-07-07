@@ -53,16 +53,13 @@ public class TC_23InvalidGoogleLogin extends BaseTest {
         Log.info("Error message displayed : " + errorHeading);
         Assert.assertTrue(errorHeading.toLowerCase().contains("couldn") || errorHeading.toLowerCase().contains("sign you in"), "Expected error message not displayed. Actual : " + errorHeading);
         takeScreenShot(driver, "InvalidGoogleLoginError");
-<<<<<<< Updated upstream
         File screenshotFile = new File(System.getProperty("user.dir") + "/screenshots/InvalidGoogleLoginError.png");
-=======
 
         // Verify screenshot exists
         File screenshotFile = new File(
                 System.getProperty("user.dir")
                         + "/screenshots/InvalidGoogleLoginError.png"
         );
->>>>>>> Stashed changes
         Log.info("Invalid Google Login verified successfully");
 
     }
