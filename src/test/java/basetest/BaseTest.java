@@ -36,10 +36,10 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-//   @AfterClass
-//    public void tearDown() {
-//        driver.quit();
-//    }
+  @AfterClass
+   public void tearDown() {
+       driver.quit();
+   }
 
     public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {
         File screenshotsDir = new File(System.getProperty("user.dir") + "/screenshots");
