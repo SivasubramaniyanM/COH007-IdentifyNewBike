@@ -28,9 +28,7 @@ public class TC_7UnrevealedLaunchBike extends BaseTest {
                 driver.getCurrentUrl().contains("honda"),
                 "Honda page is not opened"
         );
-        List<String> unrevealedBikes = bp.getUnrevealedLaunchDateBikes();
-        Log.info("Total unrevealed Honda bikes under 4 Lakhs : " + unrevealedBikes.size());
-        System.out.println("Honda Bikes with Unrevealed Launch Date (Under 4 Lakhs) : ");
+
 
         for (String bike : unrevealedBikes) {
             System.out.println(" -> " + bike);
