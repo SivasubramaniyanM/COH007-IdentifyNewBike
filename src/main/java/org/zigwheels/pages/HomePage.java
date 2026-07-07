@@ -197,6 +197,7 @@ public class HomePage extends CommonCode {
         }
         return reviews;
     }
+<<<<<<< Updated upstream
     public void clickNewCars() {
         clickElement(newCars);
     }
@@ -210,4 +211,14 @@ public class HomePage extends CommonCode {
         waitForVisibility(electricCars);
         clickElement(electricCars);
     }
+=======
+
+        public void clickNewCars() {
+            clickElement(newCars);
+        }
+
+        public void clickCarComparisons() {
+            clickElement(carComparisons);
+        }
+>>>>>>> Stashed changes
 }
