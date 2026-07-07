@@ -21,13 +21,12 @@ public class TC_5DisplayHondaBikesUnder4Lakhs extends BaseTest {
         hp.clickUpcmngBikes();
         BikesPage bp = new BikesPage(driver);
         bp.clickHondaBrand();
-<<<<<<< Updated upstream
         Assert.assertTrue(driver.getCurrentUrl().contains("honda"), "Honda page is not opened");
         List<String> names = bp.getHondaBikeNamesUnder4Lakhs();
         List<String> prices = bp.getHondaBikePricesUnder4Lakhs();
         List<String> dates = bp.getHondaBikeDatesUnder4Lakhs();
         Assert.assertFalse(names.isEmpty(), "No Honda bikes under 4 Lakhs found");
-=======
+
         Assert.assertTrue(
                 driver.getCurrentUrl().contains("honda"),
                 "Honda page is not opened"
@@ -40,7 +39,6 @@ public class TC_5DisplayHondaBikesUnder4Lakhs extends BaseTest {
                 "No Honda bikes under 4 Lakhs found"
         );
 
->>>>>>> Stashed changes
         ExportVehicleDetails.writeBikeDetailsToExcel(names, prices, dates);
         Log.info("Honda Bikes stored in Vehicle.xlsx successfully");
     }
