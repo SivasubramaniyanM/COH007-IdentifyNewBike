@@ -31,11 +31,9 @@ public class TC_4ExtractHondaBikeDetails extends BaseTest {
                 bikeData.isEmpty(),
                 "Honda bike details are empty"
         );
-<<<<<<< Updated upstream
         Log.info("Honda bike details extracted and stored successfully");
-=======
+
 
         Log.info("Honda Bike details extracted successfully");
->>>>>>> Stashed changes
     }
 }
