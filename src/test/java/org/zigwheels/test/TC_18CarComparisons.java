@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.zigwheels.pages.CarPage;
 import org.zigwheels.pages.HomePage;
+import utilities.Log;
 
 public class TC_18CarComparisons extends BaseTest {
     @Test
@@ -32,5 +33,6 @@ public class TC_18CarComparisons extends BaseTest {
                 cp.getComparisonHeading().contains("Key Highlights"),
                 "Comparison table is not displayed"
         );
+        Log.info("Car Comparison is done");
     }
 }

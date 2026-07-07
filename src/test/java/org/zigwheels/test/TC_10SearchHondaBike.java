@@ -20,7 +20,6 @@
                     p.getProperty("bikename"),
                     "Bike name does not match"
             );
-
             Log.info("Honda Activa 125 verified successfully");
         }
     }

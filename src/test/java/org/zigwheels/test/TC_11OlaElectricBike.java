@@ -15,10 +15,9 @@ public class TC_11OlaElectricBike extends BaseTest{
     hp.electricbike();
     BikesPage lp=new BikesPage(driver);
     lp.electricbike();
-        Assert.assertEquals(
-                lp.olabike(),
-                p.getProperty("olabiketpyeslisted"),
-                "ola electric bike listed"
-        );
-}
+    Assert.assertEquals(
+            lp.olabike(),
+            p.getProperty("olabiketpyeslisted"),
+            "ola electric bike listed");
+    }
 }

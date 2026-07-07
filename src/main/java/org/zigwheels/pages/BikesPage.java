@@ -8,10 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.CommonCode;
+import utilities.Log;
 
 public class BikesPage extends CommonCode {
 
-    // ---------- Constructor ----------
     public BikesPage(WebDriver driver) {
         super(driver);
     }
@@ -51,72 +51,17 @@ public class BikesPage extends CommonCode {
 
     @FindBy(xpath="//h1")
     WebElement bikeName;
+
     @FindBy(xpath="//h1[contains(normalize-space(),'Ola Electric Bikes')]")
     WebElement olaelectric;
 
     @FindBy(xpath="//div[text()='Ola Electric']")
     WebElement olabike;
 
-    //Click on the Honda brand link
     public void clickHondaBrand() {
         waitForVisibility(hondaLink);
         scrollIntoView(hondaLink);
         clickByJS(hondaLink);
-    }
-     //Print details of all Honda bikes
-    public void getHondaBikeDetails() {
-        System.out.println("Total Bikes Found : " + hondaBikes.size());
-        for (int i = 0; i < hondaBikes.size(); i++) {
-            try {
-                String bikeName = bikeNames.get(i).getText();
-                String price = bikePrices.get(i).getText();
-                String launchDate = bikeLaunchDates.get(i).getText();
-                System.out.println("Bike " + (i + 1));
-                System.out.println("Bike Name   : " + bikeName);
-                System.out.println("Price       : " + price);
-                System.out.println("Launch Date : " + launchDate);
-                System.out.println("--------------------------------");
-            } catch (Exception e) {
-                System.out.println("Unable to fetch details for Bike " + (i + 1));
-            }
-        }
-    }
-     //Print Honda bikes with price under 4 Lakhs
-
-    public void getHondaBikesUnder4Lakhs() {
-        int bikeNumber = 1;
-        for (int i = 0; i < hondaBikes.size(); i++) {
-            try {
-                String bikeName = bikeNames.get(i).getText();
-                String priceText = bikePrices.get(i).getText();
-                String launchDate = bikeLaunchDates.get(i).getText();
-                double priceInRupees;
-                if (priceText.contains("Lakh")) {
-                    priceInRupees =
-                            Double.parseDouble(
-                                    priceText.replace("Rs.", "")
-                                            .replace("Lakh", "")
-                                            .trim()
-                            ) * 100000;
-                } else {
-                    priceInRupees =
-                            Double.parseDouble(
-                                    priceText.replace("Rs.", "")
-                                            .replace(",", "")
-                                            .trim()
-                            );
-                }
-                if (priceInRupees < 400000) {
-                    System.out.println("Bike Number : " + bikeNumber);
-                    System.out.println("Bike Name   : " + bikeName);
-                    System.out.println("Price       : " + priceText);
-                    System.out.println("Launch Date : " + launchDate);
-                    System.out.println("--------------------------------");
-                    bikeNumber++;
-                }
-            } catch (Exception e) {
-            }
-        }
     }
     public void clickChennai() {
         waitForVisibility(chennai);
@@ -144,8 +89,6 @@ public class BikesPage extends CommonCode {
             }
         }
     }
-    //Convert price text like "Rs. 3.50 Lakh" or "Rs. 1,50,000" to double
-
     private double convertPriceToRupees(String priceText) {
         try {
             if (priceText.contains("Lakh")) {
@@ -211,7 +154,6 @@ public class BikesPage extends CommonCode {
                     dates.add(bikeLaunchDates.get(i).getText());
                 }
             } catch (Exception e) {
-                // skip
             }
         }
         return dates;
@@ -240,10 +182,8 @@ public class BikesPage extends CommonCode {
             try {
                 WebElement card = hondaBikes.get(i);
                 String fullText = card.getText().toLowerCase().trim();
-                // Skip empty / non-bike sections
                 if (fullText.isEmpty()) continue;
                 if (fullText.contains("upcoming bikes by brand")) continue;
-                // Bike name
                 String name = "";
                 try {
                     name = card.findElement(
@@ -252,7 +192,6 @@ public class BikesPage extends CommonCode {
                 } catch (Exception e) {
                     continue;
                 }
-                // Price
                 String priceText = "";
                 try {
                     priceText = card.findElement(
@@ -263,27 +202,22 @@ public class BikesPage extends CommonCode {
                 } catch (Exception e) {
                     continue;
                 }
-                // Skip if price not confirmed (Price To Be Announced / TBA)
                 if (priceText.toLowerCase().contains("announced")
                         || priceText.toLowerCase().contains("tba")) {
                     continue;
                 }
-                // Check launch date is unrevealed
                 boolean isUnrevealed =
                         fullText.contains("unrevealed")
                                 || fullText.contains("not revealed");
                 if (!isUnrevealed) continue;
-                // Check price is under 4 Lakhs
                 double priceInRupees = convertPriceToRupees(priceText);
                 if (priceInRupees <= 0 || priceInRupees >= 400000) continue;
-                // Add to list (Name + Price only)
                 unrevealed.add(name + " | " + priceText);
             } catch (Exception ignored) {
             }
         }
         return unrevealed;
     }
-    // Highest Price Bike Name
     public String getHighestPriceBikeName() {
         String topBikeName = null;
         double topPrice = 0.0;
@@ -320,6 +254,30 @@ public class BikesPage extends CommonCode {
         }
         return lowBikeName;
     }
+    public List<String[]> getHondaBikeDetailsForExcel() {
+        List<String[]> bikeData = new ArrayList<>();
+        for (int i = 0; i < hondaBikes.size(); i++) {
+            try {
+                String bikeName = bikeNames.get(i).getText().trim();
+                String price = "";
+                if (i < bikePrices.size()) {
+                    price = bikePrices.get(i).getText().trim();
+                }
+                String launchDate = "";
+                if (i < bikeLaunchDates.size()) {
+                    launchDate = bikeLaunchDates.get(i).getText().trim();
+                }
+                bikeData.add(new String[]{bikeName, price, launchDate});
+                Log.info("Bike Name : " + bikeName);
+                Log.info("Bike Price : " + price);
+                Log.info("Launch Date : " + launchDate);
+            } catch (Exception e) {
+                Log.error("Unable to fetch bike details at index : " + i
+                        + " Reason : " + e.getMessage());
+            }
+        }
+        return bikeData;
+    }
     public void clickUnder70000() {
         scrollIntoView(under70000);
         waitForVisibility(under70000);
@@ -330,15 +288,11 @@ public class BikesPage extends CommonCode {
         return bikes.size();
     }
     public void searchHondaActiva125() {
-
         waitForVisibility(searchBox);
-
         searchBox.sendKeys("Honda Activa 125");
         searchBox.sendKeys(Keys.ENTER);
-
         System.out.println("Honda Activa 125 searched");
     }
-
     public String getBikeName() {
         waitForVisibility(bikeName);
         return bikeName.getText().trim();
@@ -347,7 +301,6 @@ public class BikesPage extends CommonCode {
         scrollIntoViewdealer(olabike);
         clickByJS(olabike);
     }
-
     public String olabike() {
         waitForVisibility(olaelectric);
         return olaelectric.getText().trim();

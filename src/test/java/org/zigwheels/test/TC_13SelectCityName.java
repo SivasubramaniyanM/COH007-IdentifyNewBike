@@ -17,9 +17,8 @@ public class TC_13SelectCityName extends BaseTest {
         CarPage cp = new CarPage(driver);
         cp.SearchCity("chennai");
         cp.clickChennai();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://www.zigwheels.com/used-car/Chennai");
+        Assert.assertEquals(driver.getCurrentUrl(),p.getProperty("getchennaiurl"));
         Log.info("select city name completed");
-        System.out.println("select city name completed");
     }
 }
 

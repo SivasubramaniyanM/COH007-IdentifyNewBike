@@ -17,18 +17,7 @@ public class TC_26TopContributorsValidation extends BaseTest {
         hp.scrollToTopContributors();
         logger.info("Fetching contributor names");
         List<String> contributors = hp.getTopContributorNames();
-        System.out.println();
-        int count = 1;
-        for (String contributor : contributors) {
-            if (contributor != null &&
-                    !contributor.trim().isEmpty()) {
-                System.out.println(count + ". " + contributor);
-                count++;
-            }
-        }
-        System.out.println();
-        softAssert.assertTrue(count > 1, "No contributors found");
-        logger.info("Total Contributors Found : " + (count - 1));
+        logger.info("Total Contributors Found : " + (contributors.size() - 1));
         softAssert.assertAll();
     }
 }

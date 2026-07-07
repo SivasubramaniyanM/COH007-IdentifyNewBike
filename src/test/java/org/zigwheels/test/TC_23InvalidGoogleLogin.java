@@ -8,7 +8,6 @@ import org.testng.annotations.Test;
 import org.zigwheels.pages.HomePage;
 import org.zigwheels.pages.LoginPage;
 import utilities.Log;
-
 import java.io.File;
 import java.time.Duration;
 
@@ -37,15 +36,10 @@ public class TC_23InvalidGoogleLogin extends BaseTest {
             Log.info("Google Sign-In opened in same tab");
         }
         wait.withTimeout(Duration.ofSeconds(20));
-        // Wait for Google email field
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("identifierId")));
-        // Enter invalid email
-        String invalidEmail = "abc@gmail.com";
-        lp.enterInvalidEmail(invalidEmail);
-        Assert.assertEquals(lp.getEnteredEmail(), invalidEmail, "Email was not entered correctly");
-        // Click Next
+        lp.enterInvalidEmail(p.getProperty("invalidEmail"));
+        Assert.assertEquals(lp.getEnteredEmail(), (p.getProperty("invalidEmail")), "Email was not entered correctly");
         lp.clickNext();
-        // Wait until heading text CHANGES to "Couldn't sign you in"
         wait.until(driver -> {
             try {
                 String txt = driver.findElement(By.id("headingText")).getText().toLowerCase();
@@ -54,16 +48,13 @@ public class TC_23InvalidGoogleLogin extends BaseTest {
                 return false;
             }
         });
-        // Wait until "Try again" button is visible (means error page fully rendered)
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Try')]")));
         String errorHeading = driver.findElement(By.id("headingText")).getText();
         Log.info("Error message displayed : " + errorHeading);
         Assert.assertTrue(errorHeading.toLowerCase().contains("couldn") || errorHeading.toLowerCase().contains("sign you in"), "Expected error message not displayed. Actual : " + errorHeading);
-        // Take screenshot AFTER error page fully rendered
         takeScreenShot(driver, "InvalidGoogleLoginError");
-        // Verify screenshot exists
         File screenshotFile = new File(System.getProperty("user.dir") + "/screenshots/InvalidGoogleLoginError.png");
         Log.info("Invalid Google Login verified successfully");
-        System.out.println("Screenshot captured successfully");
+
     }
 }

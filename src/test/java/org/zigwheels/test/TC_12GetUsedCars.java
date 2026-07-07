@@ -17,6 +17,5 @@ public class TC_12GetUsedCars extends BaseTest {
         String actualUrl = driver.getCurrentUrl();
         Assert.assertEquals(actualUrl, expectedUrl);
         Log.info("Used Cars URL verification completed");
-        System.out.println("Used Cars URL verification completed");
     }
 }

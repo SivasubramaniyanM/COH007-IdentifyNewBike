@@ -25,6 +25,5 @@ public class TC_24FeedbackValidation extends BaseTest {
         logger.info("Clicking Submit Button");
         hp.clickSubmit();
         logger.info("Feedback submitted successfully");
-        System.out.println("Feedback submitted successfully");
     }
 }

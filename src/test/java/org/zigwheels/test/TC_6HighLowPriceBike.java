@@ -16,12 +16,10 @@ public class TC_6HighLowPriceBike extends BaseTest {
         BikesPage bp = new BikesPage(driver);
         String highestPriceBike = bp.getHighestPriceBikeName();
         Log.info("Highest Price Bike : " + highestPriceBike);
-        System.out.println("Highest Price Bike : " + highestPriceBike);
         String lowestPriceBike = bp.getLowestPriceBikeName();
         Log.info("Lowest Price Bike : " + lowestPriceBike);
-        System.out.println("Lowest Price Bike : " + lowestPriceBike);
-        Assert.assertNotNull(highestPriceBike, "Highest price bike name is null");
-        Assert.assertNotNull(lowestPriceBike, "Lowest price bike name is null");
+        Assert.assertNotNull(highestPriceBike, p.getProperty("higehstbikepricenull"));
+        Assert.assertNotNull(lowestPriceBike, p.getProperty("lowesrbikepricenull"));
         Log.info("High and Low price bikes displayed successfully");
     }
 }

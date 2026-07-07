@@ -17,14 +17,6 @@ public class TC_25LatestUserReviewsValidation extends BaseTest {
         hp.scrollToLatestUserReviews();
         logger.info("Fetching first 3 reviews");
         List<String> reviews = hp.getFirstThreeReviews();
-        System.out.println();
-        int count = 1;
-        for (String review : reviews) {
-            System.out.println();
-            System.out.println("Review " + count + ":");
-            System.out.println(review);
-            count++;
-        }
         softAssert.assertEquals(reviews.size(), 3, "Unable to retrieve 3 reviews");
         softAssert.assertAll();
     }

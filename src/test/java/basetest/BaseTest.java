@@ -25,7 +25,6 @@ public class BaseTest {
     public void setDriver() throws IOException {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
-        //options.addArguments("--headless=new");
         driver = new ChromeDriver(options);
         FileReader file=new FileReader("src/test/resources/config.properties");
         p=new Properties();
@@ -37,10 +36,10 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     }
 
-   // @AfterClass
-    public void tearDown() {
-        driver.quit();
-    }
+//   @AfterClass
+//    public void tearDown() {
+//        driver.quit();
+//    }
 
     public static void takeScreenShot(WebDriver driver, String fileName) throws IOException {
         File screenshotsDir = new File(System.getProperty("user.dir") + "/screenshots");

@@ -22,6 +22,5 @@ public class TC_2GetUpcomingBike extends BaseTest {
                 "Page title does not contain 'Upcoming'. Actual: " + pageTitle
         );
         Log.info("Upcoming Bike URL page verification completed");
-        System.out.println("Upcoming Bike URL page verification completed");
     }
 }

@@ -14,15 +14,13 @@ public class TC_21ElectricCarUnder10Lakhs extends BaseTest {
     public void verifyElectricCarsUnder10LakhsPage() {
         HomePage hp = new HomePage(driver);
         CarPage cp = new CarPage(driver);
-        Log.info("===== Verify Electric Cars Under 10 Lakhs Page =====");
-        // Step 1: Home Page
+        Log.info("Verify Electric Cars Under 10 Lakhs Page ");
         hp.clickNewCars();
         Log.info("Clicked New Cars");
         hp.clickElectricCars();
         Log.info("Clicked Electric Cars");
         cp.clickUnder10Lakh();
         Log.info("Clicked Under 10 Lakh");
-        // Assertion
         String actualHeading = cp.getUnder10LakhHeading();
         Assert.assertEquals(
                 actualHeading,

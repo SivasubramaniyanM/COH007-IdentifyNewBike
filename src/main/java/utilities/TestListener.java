@@ -12,20 +12,17 @@ public class TestListener implements ITestListener {
         ExtentReportManager.getReportInstance();
         Log.info("=== Test Suite Started ===");
     }
-
     @Override
     public void onTestStart(ITestResult result) {
         ExtentReportManager.createTest(result.getName());
         Log.info("Test Started : " + result.getName());
     }
-
     @Override
     public void onTestSuccess(ITestResult result) {
         ExtentReportManager.getTest().log(Status.PASS,
                 "Test Passed : " + result.getName());
         Log.info("Test Passed : " + result.getName());
     }
-
     @Override
     public void onTestFailure(ITestResult result) {
         ExtentReportManager.getTest().log(Status.FAIL,
@@ -33,14 +30,12 @@ public class TestListener implements ITestListener {
         ExtentReportManager.getTest().log(Status.FAIL, result.getThrowable());
         Log.error("Test Failed : " + result.getName());
     }
-
     @Override
     public void onTestSkipped(ITestResult result) {
         ExtentReportManager.getTest().log(Status.SKIP,
                 "Test Skipped : " + result.getName());
         Log.info("Test Skipped : " + result.getName());
     }
-
     @Override
     public void onFinish(ITestContext context) {
         ExtentReportManager.flushReport();

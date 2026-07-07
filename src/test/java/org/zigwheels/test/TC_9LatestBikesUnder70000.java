@@ -13,7 +13,7 @@ public class TC_9LatestBikesUnder70000 extends BaseTest {
         hp.clickNewBikes();
         hp.clickLatestBikes();
         bp.clickUnder70000();
-        Assert.assertTrue(bp.getBikeCount() > 0, "No bikes are displayed under 70000");
+        Assert.assertTrue(bp.getBikeCount() > 0, p.getProperty("Nobikesdisplay"));
         logger.info("Under 70000 bikes displayed successfully");
     }
 }

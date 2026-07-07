@@ -14,10 +14,9 @@ public class TC_3SelectHondaBrand extends BaseTest{
         hp.clickUpcmngBikes();
         BikesPage bp = new BikesPage(driver);
         bp.clickHondaBrand();
-        System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(
                 driver.getPageSource().contains("Honda"),
-                "Honda not found on page"
+                p.getProperty("pagenotfound")
         );
     }
 }

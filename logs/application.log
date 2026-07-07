@@ -455,3 +455,207 @@
 2026-07-06 15:42:31 [main] INFO  Log - Clicked Under 10 Lakh
 2026-07-06 15:42:31 [main] INFO  Log - Successfully verified Electric Cars Under 10 Lakhs page
 >>>>>>> Nandhakumar
+2026-07-06 16:55:26 [main] INFO  Log - Entering Honda Bikes Page
+2026-07-06 16:55:33 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 16:55:33 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 16:55:33 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 16:55:33 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 16:55:33 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 16:55:34 [main] ERROR Log - Failed to write Honda bike details to Excel
+2026-07-06 16:55:34 [main] INFO  Log - Honda bike details extracted and stored in Excel successfully
+2026-07-06 17:04:12 [main] INFO  Log - Entering Honda Bikes Page
+2026-07-06 17:04:20 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:20 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:20 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:20 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:20 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:22 [main] ERROR Log - Failed to write Honda bike details to Excel
+2026-07-06 17:04:22 [main] INFO  Log - Honda bike details extracted and stored in Excel successfully
+2026-07-06 17:04:52 [main] INFO  Log - Entering Honda Bikes Page
+2026-07-06 17:04:59 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:59 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:59 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:59 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:04:59 [main] ERROR Log - Unable to fetch bike details
+2026-07-06 17:05:00 [main] ERROR Log - Failed to write Honda bike details to Excel
+2026-07-06 17:05:00 [main] INFO  Log - Honda bike details extracted and stored in Excel successfully
+2026-07-06 17:14:20 [main] INFO  Log - Entering Honda Bikes Page
+2026-07-06 17:14:29 [main] INFO  Log - Bike Name : Honda ADV 160
+2026-07-06 17:14:29 [main] INFO  Log - Bike Price : Rs. 1.55 Lakh
+2026-07-06 17:14:29 [main] INFO  Log - Launch Date : Expected Launch : Dec 2026
+2026-07-06 17:14:29 [main] INFO  Log - Bike Name : Honda Shine Electric
+2026-07-06 17:14:29 [main] INFO  Log - Bike Price : Rs. 1.30 Lakh
+2026-07-06 17:14:29 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:29 [main] INFO  Log - Bike Name : Honda CBR500R
+2026-07-06 17:14:29 [main] INFO  Log - Bike Price : Rs. 5.50 Lakh
+2026-07-06 17:14:29 [main] INFO  Log - Launch Date : Expected Launch : Jan 2028
+2026-07-06 17:14:29 [main] INFO  Log - Bike Name : Honda Forza 350
+2026-07-06 17:14:29 [main] INFO  Log - Bike Price : Rs. 3.70 Lakh
+2026-07-06 17:14:29 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:30 [main] INFO  Log - Bike Name : Honda Rebel 1100
+2026-07-06 17:14:30 [main] INFO  Log - Bike Price : Rs. 12.00 Lakh
+2026-07-06 17:14:30 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 17:14:30 [main] INFO  Log - Bike Name : Honda CB500F
+2026-07-06 17:14:30 [main] INFO  Log - Bike Price : Rs. 5.00 Lakh
+2026-07-06 17:14:30 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:30 [main] INFO  Log - Bike Name : Honda CBR150R
+2026-07-06 17:14:30 [main] INFO  Log - Bike Price : Rs. 1.70 Lakh
+2026-07-06 17:14:30 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 17:14:30 [main] INFO  Log - Bike Name : Honda Rebel 300
+2026-07-06 17:14:30 [main] INFO  Log - Bike Price : Rs. 2.30 Lakh
+2026-07-06 17:14:30 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:31 [main] INFO  Log - Bike Name : Honda PCX160
+2026-07-06 17:14:31 [main] INFO  Log - Bike Price : Rs. 1.20 Lakh
+2026-07-06 17:14:31 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 17:14:31 [main] INFO  Log - Bike Name : Honda Motocompacto
+2026-07-06 17:14:31 [main] INFO  Log - Bike Price : Rs. 3.30 Lakh
+2026-07-06 17:14:31 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:31 [main] INFO  Log - Bike Name : Honda CRF300L
+2026-07-06 17:14:31 [main] INFO  Log - Bike Price : Rs. 2.30 Lakh
+2026-07-06 17:14:31 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 17:14:31 [main] INFO  Log - Bike Name : Honda CB350 Cruiser
+2026-07-06 17:14:31 [main] INFO  Log - Bike Price : Rs. 79,000
+2026-07-06 17:14:31 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:31 [main] INFO  Log - Bike Name : Honda Activa 7G
+2026-07-06 17:14:31 [main] INFO  Log - Bike Price : Rs. 14.46 Lakh
+2026-07-06 17:14:31 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 17:14:32 [main] INFO  Log - Bike Name : Honda CB1000R
+2026-07-06 17:14:32 [main] INFO  Log - Bike Price : Rs. 6.00 Lakh
+2026-07-06 17:14:32 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:32 [main] INFO  Log - Bike Name : Honda CB1000GT
+2026-07-06 17:14:32 [main] INFO  Log - Bike Price : 
+2026-07-06 17:14:32 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 17:14:32 [main] INFO  Log - Bike Name : Honda WN7
+2026-07-06 17:14:32 [main] INFO  Log - Bike Price : 
+2026-07-06 17:14:32 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:32 [main] INFO  Log - Bike Name : Honda SH125i
+2026-07-06 17:14:32 [main] INFO  Log - Bike Price : 
+2026-07-06 17:14:32 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 17:14:32 [main] INFO  Log - Bike Name : Honda CL500 Scrambler
+2026-07-06 17:14:32 [main] INFO  Log - Bike Price : 
+2026-07-06 17:14:32 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 17:14:32 [main] ERROR Log - Unable to fetch bike details at index : 18 Reason : Index 18 out of bounds for length 18
+2026-07-06 18:55:02 [main] INFO  Log - Entering Honda Bikes Page
+2026-07-06 18:56:59 [main] INFO  Log - Bike Name : Honda ADV 160
+2026-07-06 18:56:59 [main] INFO  Log - Bike Price : Rs. 1.55 Lakh
+2026-07-06 18:56:59 [main] INFO  Log - Launch Date : Expected Launch : Dec 2026
+2026-07-06 18:57:00 [main] INFO  Log - Bike Name : Honda Shine Electric
+2026-07-06 18:57:00 [main] INFO  Log - Bike Price : Rs. 1.30 Lakh
+2026-07-06 18:57:00 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:00 [main] INFO  Log - Bike Name : Honda CBR500R
+2026-07-06 18:57:00 [main] INFO  Log - Bike Price : Rs. 5.50 Lakh
+2026-07-06 18:57:00 [main] INFO  Log - Launch Date : Expected Launch : Jan 2028
+2026-07-06 18:57:00 [main] INFO  Log - Bike Name : Honda Forza 350
+2026-07-06 18:57:00 [main] INFO  Log - Bike Price : Rs. 3.70 Lakh
+2026-07-06 18:57:00 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:00 [main] INFO  Log - Bike Name : Honda Rebel 1100
+2026-07-06 18:57:00 [main] INFO  Log - Bike Price : Rs. 12.00 Lakh
+2026-07-06 18:57:00 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 18:57:01 [main] INFO  Log - Bike Name : Honda CB500F
+2026-07-06 18:57:01 [main] INFO  Log - Bike Price : Rs. 5.00 Lakh
+2026-07-06 18:57:01 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:01 [main] INFO  Log - Bike Name : Honda CBR150R
+2026-07-06 18:57:01 [main] INFO  Log - Bike Price : Rs. 1.70 Lakh
+2026-07-06 18:57:01 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 18:57:01 [main] INFO  Log - Bike Name : Honda Rebel 300
+2026-07-06 18:57:01 [main] INFO  Log - Bike Price : Rs. 2.30 Lakh
+2026-07-06 18:57:01 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:01 [main] INFO  Log - Bike Name : Honda PCX160
+2026-07-06 18:57:01 [main] INFO  Log - Bike Price : Rs. 1.20 Lakh
+2026-07-06 18:57:01 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 18:57:02 [main] INFO  Log - Bike Name : Honda Motocompacto
+2026-07-06 18:57:02 [main] INFO  Log - Bike Price : Rs. 3.30 Lakh
+2026-07-06 18:57:02 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:02 [main] INFO  Log - Bike Name : Honda CRF300L
+2026-07-06 18:57:02 [main] INFO  Log - Bike Price : Rs. 2.30 Lakh
+2026-07-06 18:57:02 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 18:57:02 [main] INFO  Log - Bike Name : Honda CB350 Cruiser
+2026-07-06 18:57:02 [main] INFO  Log - Bike Price : Rs. 79,000
+2026-07-06 18:57:02 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:02 [main] INFO  Log - Bike Name : Honda Activa 7G
+2026-07-06 18:57:02 [main] INFO  Log - Bike Price : Rs. 14.46 Lakh
+2026-07-06 18:57:02 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 18:57:03 [main] INFO  Log - Bike Name : Honda CB1000R
+2026-07-06 18:57:03 [main] INFO  Log - Bike Price : Rs. 6.00 Lakh
+2026-07-06 18:57:03 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:03 [main] INFO  Log - Bike Name : Honda CB1000GT
+2026-07-06 18:57:03 [main] INFO  Log - Bike Price : 
+2026-07-06 18:57:03 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 18:57:03 [main] INFO  Log - Bike Name : Honda WN7
+2026-07-06 18:57:03 [main] INFO  Log - Bike Price : 
+2026-07-06 18:57:03 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:03 [main] INFO  Log - Bike Name : Honda SH125i
+2026-07-06 18:57:03 [main] INFO  Log - Bike Price : 
+2026-07-06 18:57:03 [main] INFO  Log - Launch Date : Expected Launch : Unrevealed
+2026-07-06 18:57:03 [main] INFO  Log - Bike Name : Honda CL500 Scrambler
+2026-07-06 18:57:03 [main] INFO  Log - Bike Price : 
+2026-07-06 18:57:03 [main] INFO  Log - Launch Date : Alert Me When Launched
+2026-07-06 18:57:03 [main] ERROR Log - Unable to fetch bike details at index : 18 Reason : Index 18 out of bounds for length 18
+2026-07-06 18:57:05 [main] INFO  Log - All Honda Bike Details written to Excel
+2026-07-06 18:57:05 [main] INFO  Log - Honda bike details extracted and stored successfully
+2026-07-06 19:07:21 [main] INFO  Log - Navigating to Chennai Used Cars Page
+2026-07-06 19:12:05 [main] INFO  Log - Navigating to Chennai Used Cars Page
+2026-07-06 19:21:45 [main] INFO  Log - Navigating to Chennai Used Cars Page
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda Amaze VX
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 8.50 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City i VTEC CVT VX
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 3.99 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City i-DTEC ZX
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 10.50 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City 1.5 S AT
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 3.85 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City V MT
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 9.75 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda Amaze S Petrol BSIV
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 3.99 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 39 Used Maruti Swift
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 3.65 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 36 Used Hyundai Creta
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 1.10 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 31 Used Maruti Wagon R
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 4.25 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 53 Used Hyundai i20
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 2.50 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 1355 Used Maruti Alto 800
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 5.69 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 1330 Used Maruti Baleno
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : Rs. 1.56 Lakh
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 1234 Used Maruti Swift Dzire
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 1213 Used Tata Nexon
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : 33 Used Hyundai Grand i10
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda Amaze VX i-VTEC
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City V MT
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City i VTEC CVT VX
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City 1.5 V AT
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda Jazz ZX CVT
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:15 [main] INFO  Log - Car Name : Honda City S
+2026-07-06 19:22:15 [main] INFO  Log - Car Price : 
+2026-07-06 19:22:18 [main] INFO  Log - Hyundai Popular Cars written to Excel
+2026-07-06 19:22:18 [main] INFO  Log - Total Cars Found : 21
+2026-07-06 19:22:18 [main] INFO  Log - Hyundai Popular Cars extracted and stored in Excel successfully
+2026-07-07 09:40:32 [main] INFO  Log - Cheapest and Costliest cars identified successfully
+2026-07-07 10:00:11 [main] INFO  Log - View Offers display verification completed
+2026-07-07 10:00:31 [main] INFO  Log - Clicked on New Cars
+2026-07-07 10:00:34 [main] INFO  Log - Clicked on Car Offers
+2026-07-07 10:00:34 [main] INFO  Log - Clicked on Offer Details
+2026-07-07 10:00:35 [main] INFO  Log - Selected City
+2026-07-07 10:00:36 [main] INFO  Log - Selected Pin Code
+2026-07-07 10:00:37 [main] INFO  Log - Selected Agency
+2026-07-07 10:00:37 [main] INFO  Log - Clicked on Offer
+2026-07-07 10:00:37 [main] INFO  Log - Entered Mobile Number
+2026-07-07 10:00:37 [main] INFO  Log - Invalid Mobile Number verification completed
+2026-07-07 10:21:34 [main] INFO  Log - View Offers display verification completed
+2026-07-07 10:27:17 [main] INFO  Log - Selected City
+2026-07-07 10:27:19 [main] INFO  Log - Selected Pin Code
+2026-07-07 10:27:20 [main] INFO  Log - Selected Agency
+2026-07-07 10:27:20 [main] INFO  Log - Clicked on Offer
+2026-07-07 10:27:20 [main] INFO  Log - Entered Mobile Number
+2026-07-07 10:27:20 [main] INFO  Log - Invalid Mobile Number verification completed

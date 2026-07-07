@@ -67,15 +67,23 @@ public class HomePage extends CommonCode {
     @FindBy(xpath = "//*[@id='latest_user_review']//li")
     List<WebElement> userReviews;
 
-    @FindBy(xpath = "//nav[@class='headerNav']/ul/li[2]/span")
+    @FindBy(xpath = "//span[contains(.,'NEW CARS')]")
     WebElement newCars;
 
     @FindBy(xpath="//a[text()='Car Comparisons']")
     WebElement carComparisons;
+
     @FindBy(xpath="//a[contains(text(),'Search New Bikes')]")
     WebElement search;
+
     @FindBy(xpath="//a[contains(text(),'Electric Bikes')]")
     WebElement ElectricBikes;
+
+    @FindBy(linkText = "Electric Cars")
+    WebElement electricCars;
+
+    @FindBy(xpath="//a[text()='Car Offers & Discounts']")
+    WebElement CarOffer;
 
     public void clickLatestBikes() {
         waitForVisibility(latestBikes);
@@ -89,25 +97,16 @@ public class HomePage extends CommonCode {
         public void SearchHonda(){
             waitForVisibility(search);
             clickElement(search);
-            System.out.println("Search New Bike clicked");
-
         }
     public void electricbike(){
         waitForVisibility(ElectricBikes);
         clickElement(ElectricBikes);
-        System.out.println("Electric Bike clicked");
 
     }
     public void clickUpcmngBikes() {
         waitForVisibility(upcomingBikes);
         clickElement(upcomingBikes);
-        System.out.println("Upcoming Bikes clicked");
     }
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Nandhakumar
     public void clickBikeDealers() {
         waitForVisibility(bikeDealers);
         clickElement(bikeDealers);
@@ -132,7 +131,6 @@ public class HomePage extends CommonCode {
                 .moveToElement(usedCarsLink)
                 .click()
                 .perform();
-
         wait.until(d -> {
             String url = d.getCurrentUrl();
             return url != null && url.toLowerCase().contains("used-car");
@@ -205,19 +203,11 @@ public class HomePage extends CommonCode {
     public void clickCarComparisons() {
         clickElement(carComparisons);
     }
-<<<<<<< HEAD
-=======
-
-    @FindBy(linkText = "Electric Cars")
-    WebElement electricCars;
-
+    public void clickCarOffer(){
+        super.clickByJS(CarOffer);
+    }
     public void clickElectricCars() {
         waitForVisibility(electricCars);
         clickElement(electricCars);
     }
-
-
-
->>>>>>> Stashed changes
->>>>>>> Nandhakumar
 }

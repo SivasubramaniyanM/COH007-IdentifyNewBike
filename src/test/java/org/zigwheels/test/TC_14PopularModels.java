@@ -29,7 +29,6 @@ public class TC_14PopularModels extends BaseTest {
         softAssert.assertTrue(cp.isPopularModelsDisplayed(), "Popular Models section is not displayed");
         Log.info("Popular Models section is displayed");
         popularModelsList = cp.getPopularModelNames();
-        System.out.println("========== POPULAR MODELS ==========");
         for (String model : popularModelsList) {
             System.out.println(model);
         }

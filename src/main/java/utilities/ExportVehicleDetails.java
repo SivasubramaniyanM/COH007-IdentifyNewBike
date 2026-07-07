@@ -4,7 +4,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -12,40 +11,97 @@ import java.io.IOException;
 import java.util.List;
 
 public class ExportVehicleDetails {
+    private static final String FILE_PATH =
+            System.getProperty("user.dir")
+                    + "/src/test/resources/testdata/Vehicle.xlsx";
+    private static final String SHEET_NAME = "HondaBikes";
 
-    static Workbook workbook = new XSSFWorkbook();
-
+    public static void writeHondaBikeDetails(List<String[]> bikeData) throws IOException {
+        File file = new File(FILE_PATH);
+        Workbook workbook;
+        if (file.exists()) {
+            FileInputStream fis = new FileInputStream(file);
+            workbook = new XSSFWorkbook(fis);
+            fis.close();
+        } else {
+            workbook = new XSSFWorkbook();
+        }
+        Sheet sheet = workbook.getSheet(SHEET_NAME);
+        if (sheet != null) {
+            workbook.removeSheetAt(workbook.getSheetIndex(sheet));
+        }
+        sheet = workbook.createSheet(SHEET_NAME);
+        int rowNum = 0;
+        Row titleRow = sheet.createRow(rowNum++);
+        titleRow.createCell(0).setCellValue("ALL HONDA BIKE DETAILS");
+        Row headerRow = sheet.createRow(rowNum++);
+        headerRow.createCell(0).setCellValue("Bike Name");
+        headerRow.createCell(1).setCellValue("Bike Price");
+        headerRow.createCell(2).setCellValue("Launch Date");
+        for (String[] bike : bikeData) {
+            Row row = sheet.createRow(rowNum++);
+            row.createCell(0).setCellValue(bike[0]);
+            if (bike.length > 1) {
+                row.createCell(1).setCellValue(bike[1]);
+            }
+            if (bike.length > 2) {
+                row.createCell(2).setCellValue(bike[2]);
+            }
+        }
+        FileOutputStream fos = new FileOutputStream(FILE_PATH);
+        workbook.write(fos);
+        fos.close();
+        workbook.close();
+        Log.info("All Honda Bike Details written to Excel");
+    }
     public static void writeBikeDetailsToExcel(List<String> names,
                                                List<String> prices,
                                                List<String> dates)
             throws IOException {
-        Sheet sheet1 = workbook.createSheet("HondaBikesUnder4Lakhs");
-        Row header = sheet1.createRow(0);
-        header.createCell(0).setCellValue("Bike Name");
-        header.createCell(1).setCellValue("Bike Price");
-        header.createCell(2).setCellValue("Launch Date");
-        for (int i = 0; i < names.size(); i++) {
-            Row row = sheet1.createRow(i + 1);
-            row.createCell(0).setCellValue(names.get(i));
-            row.createCell(1).setCellValue(prices.get(i));
-            row.createCell(2).setCellValue(dates.get(i));
+        File file = new File(FILE_PATH);
+        Workbook workbook;
+        if (file.exists()) {
+            FileInputStream fis = new FileInputStream(file);
+            workbook = new XSSFWorkbook(fis);
+            fis.close();
+        } else {
+            workbook = new XSSFWorkbook();
         }
-        FileOutputStream fos = new FileOutputStream(
-                System.getProperty("user.dir")
-                        + "/src/test/resources/testdata/Vehicle.xlsx"
-        );
+        Sheet sheet = workbook.getSheet(SHEET_NAME);
+        if (sheet == null) {
+            sheet = workbook.createSheet(SHEET_NAME);
+        }
+        int rowNum = sheet.getLastRowNum();
+        if (rowNum > 0) {
+            rowNum += 3;
+        }
+        Row titleRow = sheet.createRow(rowNum++);
+        titleRow.createCell(0).setCellValue("HONDA BIKES UNDER 4 LAKHS");
+        Row headerRow = sheet.createRow(rowNum++);
+        headerRow.createCell(0).setCellValue("Bike Name");
+        headerRow.createCell(1).setCellValue("Bike Price");
+        headerRow.createCell(2).setCellValue("Launch Date");
+        for (int i = 0; i < names.size(); i++) {
+            Row row = sheet.createRow(rowNum++);
+            row.createCell(0).setCellValue(names.get(i));
+            if (i < prices.size()) {
+                row.createCell(1).setCellValue(prices.get(i));
+            }
+            if (i < dates.size()) {
+                row.createCell(2).setCellValue(dates.get(i));
+            }
+        }
+        FileOutputStream fos = new FileOutputStream(FILE_PATH);
         workbook.write(fos);
+        fos.close();
         workbook.close();
-        System.out.println("Vehicle.xlsx created successfully");
+        Log.info("Honda Bikes Under 4 Lakhs written to Excel");
     }
-
     public static void writeCarDetailsToExcel(List<String> carDetails)
             throws IOException {
-        String filePath = System.getProperty("user.dir")
-                + "/src/test/resources/testdata/Vehicle.xlsx";
-        File file = new File(filePath);
+        File file = new File(FILE_PATH);
         if (!file.exists()) {
-            System.out.println("Vehicle.xlsx not found");
+            Log.error("Vehicle.xlsx not found");
             return;
         }
         FileInputStream fis = new FileInputStream(file);
@@ -72,6 +128,41 @@ public class ExportVehicleDetails {
         workbook.write(fos);
         fos.close();
         workbook.close();
-        System.out.println("Cars Sheet Added Successfully");
+        Log.info("Cars Sheet Added Successfully");
+    }
+    public static void writeHyundaiPopularCars(List<String[]> carData)
+            throws IOException {
+        File file = new File(FILE_PATH);
+        Workbook workbook;
+        if (file.exists()) {
+            FileInputStream fis = new FileInputStream(file);
+            workbook = new XSSFWorkbook(fis);
+            fis.close();
+        } else {
+            workbook = new XSSFWorkbook();
+        }
+        Sheet sheet = workbook.getSheet("HyundaiPopularCars");
+        if (sheet != null) {
+            workbook.removeSheetAt(workbook.getSheetIndex(sheet));
+        }
+        sheet = workbook.createSheet("HyundaiPopularCars");
+        int rowNum = 0;
+        Row titleRow = sheet.createRow(rowNum++);
+        titleRow.createCell(0).setCellValue("HYUNDAI POPULAR CARS - CHENNAI");
+        Row headerRow = sheet.createRow(rowNum++);
+        headerRow.createCell(0).setCellValue("Car Name");
+        headerRow.createCell(1).setCellValue("Car Price");
+        for (String[] car : carData) {
+            Row row = sheet.createRow(rowNum++);
+            row.createCell(0).setCellValue(car[0]);
+            if (car.length > 1) {
+                row.createCell(1).setCellValue(car[1]);
+            }
+        }
+        FileOutputStream fos = new FileOutputStream(FILE_PATH);
+        workbook.write(fos);
+        fos.close();
+        workbook.close();
+        Log.info("Hyundai Popular Cars written to Excel");
     }
 }

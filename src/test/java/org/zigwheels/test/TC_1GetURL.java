@@ -15,6 +15,5 @@ public class TC_1GetURL extends BaseTest {
         Assert.assertEquals(baseUrl, url,"");
         HomePage hp=new HomePage(driver);
         Log.info("Base URL verification completed");
-        System.out.println("Base URL verification completed");
     }
 }

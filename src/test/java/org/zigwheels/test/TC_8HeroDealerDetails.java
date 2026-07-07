@@ -17,7 +17,7 @@ public class TC_8HeroDealerDetails extends BaseTest {
         bp.clickChennai();
         bp.clickHeroMotoCorp();
         bp.getHeroDealerDetails();
-        Assert.assertTrue(driver.getPageSource().contains("Hero"), "Hero page not loaded");
+        Assert.assertTrue(driver.getPageSource().contains("Hero"), p.getProperty("nopageload"));
         logger.info("Hero dealer details extracted successfully");
     }
 }
