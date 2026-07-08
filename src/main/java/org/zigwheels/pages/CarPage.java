@@ -28,7 +28,7 @@ public class CarPage extends CommonCode {
     @FindBy(xpath="//a[contains(@id,'editCar')]")
     WebElement pencilIcon;
 
-    @FindBy(xpath="//input[@placeholder='Search Brand/Model']")
+    @FindBy(xpath="//input[contains(@placeholder,'Search Brand')]")
     WebElement brandOrModel;
 
     @FindBy(xpath="//input[@placeholder='Search Variant']")
@@ -61,7 +61,7 @@ public class CarPage extends CommonCode {
     @FindBy(xpath="//input[@id='locality']")
     WebElement pincode;
 
-    @FindBy(xpath="//span[@title='PPS Motors Pvt. Ltd.-Rajajinagar']")
+    @FindBy(xpath="//input[@title='Renault Mysore Road']")
     WebElement agency;
 
     @FindBy(xpath="//input[@type='tel' and @maxlength='15']")
@@ -79,6 +79,7 @@ public class CarPage extends CommonCode {
     public void SearchCity(String city) {
         enterText(searchBar, city);
     }
+
     public void clickChennai() {
         waitForClickable(chennaiEle);
         scrollIntoView(chennaiEle);
@@ -88,6 +89,7 @@ public class CarPage extends CommonCode {
             return url != null && url.toLowerCase().contains("chennai");
         });
     }
+
     public void goToPopularModels() {
         WebDriverWait localWait = new WebDriverWait(driver, Duration.ofSeconds(20));
         By popularBy = By.xpath("//div[contains(@class,'popularCardBrand')]");
@@ -111,6 +113,7 @@ public class CarPage extends CommonCode {
         }
         throw new RuntimeException("Could not scroll to Popular Models section after 3 retries");
     }
+
     public boolean isPopularModelsDisplayed() {
         try {
             WebDriverWait localWait = new WebDriverWait(driver, Duration.ofSeconds(15));
@@ -130,12 +133,14 @@ public class CarPage extends CommonCode {
             return false;
         }
     }
+
     public List<String> getPopularModelNames() {
         // Re-locate freshly to avoid stale
         By popularLinksBy =
                 By.xpath("//div[contains(@class,'popularCardBrand')]//ul/li//a");
         return safeGetTextsByLocator(popularLinksBy);
     }
+
     public void clickThirdPopularModel() {
         WebDriverWait localWait = new WebDriverWait(driver, Duration.ofSeconds(20));
         By popularLinksBy =
@@ -156,6 +161,7 @@ public class CarPage extends CommonCode {
             }
         }
     }
+
     public void waitForCarsToLoad() {
         By carNamesBy = By.xpath("//a[@data-track-label='Car-name']");
         By carPricesBy = By.xpath("//div[contains(@class,'zw-sr-searchTarget')]//*[contains(text(),'Lakh')]");
@@ -168,14 +174,17 @@ public class CarPage extends CommonCode {
             return a > 0 && a == b;
         });
     }
+
     public List<String> getCarNames() {
         By carNamesBy = By.xpath("//a[@data-track-label='Car-name']");
         return safeGetTextsByLocator(carNamesBy);
     }
+
     public List<String> getCarPrices() {
         By carPricesBy = By.xpath("//div[contains(@class,'zw-sr-searchTarget')]//*[contains(text(),'Lakh')]");
         return safeGetTextsByLocator(carPricesBy);
     }
+
     // Re-fetches elements from DOM on each attempt (stale-proof)
     public List<String> safeGetTextsByLocator(By locator) {
         int attempts = 0;
@@ -196,6 +205,7 @@ public class CarPage extends CommonCode {
         }
         return new ArrayList<>();
     }
+
     public void clickAddOrEditCar1() {
         try {
             clickElement(addCar1);
@@ -203,6 +213,7 @@ public class CarPage extends CommonCode {
             clickElement(pencilIcon);
         }
     }
+
     public void clickAddOrEditCar2() {
         try {
             wait.until(
@@ -214,28 +225,57 @@ public class CarPage extends CommonCode {
             clickElement(pencilIcon);
         }
     }
-    public void selectCar(String brandOrModelName,
-                          String variantName) {
+
+    public void selectCar(String brandOrModelName, String variantName) {
+        // ---------- BRAND / MODEL ----------
         waitForVisibility(brandOrModel);
         brandOrModel.click();
         brandOrModel.clear();
         brandOrModel.sendKeys(brandOrModelName);
-        WebElement carOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(text(),'" + brandOrModelName + "')]")));
-        carOption.click();
+        // Fallback locator — works for both autocomplete <li><a> AND Top Competitors list
+        By brandOption = By.xpath(
+                "//li[@class='ui-menu-item']/a[normalize-space(text())='" + brandOrModelName + "']" +
+                        " | //div[contains(@class,'ngp-dropdown-content')]//*[normalize-space(text())='" + brandOrModelName + "']"
+        );
+        for (int i = 0; i < 3; i++) {
+            try {
+                WebElement carOption = wait.until(ExpectedConditions.presenceOfElementLocated(brandOption));
+                scrollIntoView(carOption);
+                js.executeScript("arguments[0].click();", carOption);
+                Log.info("Brand selected : " + brandOrModelName);
+                break;
+            } catch (StaleElementReferenceException e) {
+                Log.info("Stale on brand, retry " + (i + 1));
+            }
+        }
+        // ---------- VARIANT ----------
         waitForVisibility(variant);
         variant.click();
         variant.clear();
         variant.sendKeys(variantName);
-        WebElement variantOption = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(text(),'" + variantName + "')]")));
-        variantOption.click();
+        By visibleVariantOption = By.xpath(
+                "//div[@id='variantDropDownList-cm']//span[@data-name and not(contains(@style,'display: none')) and not(contains(@style,'display:none'))]"
+        );
+        try {
+            WebElement varOption = wait.until(ExpectedConditions.presenceOfElementLocated(visibleVariantOption));
+            String selected = varOption.getAttribute("data-name");
+            scrollIntoView(varOption);
+            js.executeScript("arguments[0].click();", varOption);
+            Log.info("Variant selected : " + selected);
+        } catch (Exception e) {
+            Log.info("Variant click issue : " + e.getMessage());
+        }
     }
+
     public void clickCompareCars() {
         WebElement compareButton = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class='col-sm-12 txt-c clr']/a")));
         js.executeScript("arguments[0].click();", compareButton);
     }
+
     public String getComparisonHeading() {
         return comparisonHeading.getText();
     }
+
     public void displayPriceAndCCComparison() {
         scrollIntoView(car1Price);
         Log.info("===== PRICE COMPARISON =====");
@@ -251,10 +291,12 @@ public class CarPage extends CommonCode {
         waitForVisibility(under10Lakh);
         clickByJS(under10Lakh);
     }
+
     public String getUnder10LakhHeading() {
         waitForVisibility(under10LakhHeading);
         return under10LakhHeading.getText().trim();
     }
+
     public List<String[]> getCarDetailsForExcel() {
         List<String[]> carData = new ArrayList<>();
         List<String> names = getCarNames();
@@ -274,6 +316,7 @@ public class CarPage extends CommonCode {
         }
         return carData;
     }
+
     public double parsePriceInLakh(String priceText) {
         try {
             String cleaned = priceText
@@ -286,6 +329,7 @@ public class CarPage extends CommonCode {
             return -1;
         }
     }
+
     public String[] getCheapestAndCostliestCar(List<String> names, List<String> prices) {
         double minPrice = Double.MAX_VALUE;
         double maxPrice = Double.MIN_VALUE;
@@ -314,32 +358,41 @@ public class CarPage extends CommonCode {
                 String.valueOf(maxPrice)
         };
     }
+
     public void clickOfferDetail(){
         super.clickByJS(offerDetails);
 
     }
+
     public boolean isContinueButtonDisplayed() {
         waitForVisibility(CheckOffer);
         return CheckOffer.isDisplayed();
     }
+
     public void verifyOfferButtonVisible() {
         waitForVisibility(CheckOffer);
     }
+
     public void SelectYourCity(String city){
         CityName.sendKeys(city + Keys.ENTER);
     }
+
     public void SelectPinCode(String pin){
         pincode.sendKeys(pin + Keys.ENTER);
     }
+
     public void EnterMobNo(String mobileNo) {
         mobNo.sendKeys(mobileNo);
     }
+
     public void SelectAgency(){
-        super.clickByJS(agency);
+        agency.click();
     }
+
     public void ClickOffer(){
         super.clickByJS(CheckOffer);
     }
+
     public String GetText(){
         return InvalidText.getText();
     }
