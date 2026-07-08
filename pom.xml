@@ -19,11 +19,16 @@
 
     <dependencies>
         <!-- Selenium -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.39.0</version>
-        </dependency>
+        </dependency> -->
+<dependency>
+    <groupId>org.seleniumhq.selenium</groupId>
+    <artifactId>selenium-devtools-v149</artifactId>
+    <version>4.39.0</version>
+</dependency>
 
         <!-- TestNG -->
         <dependency>
