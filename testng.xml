@@ -20,7 +20,7 @@
             <class name="org.zigwheels.test.TC_12GetUsedCars"/>
             <class name="org.zigwheels.test.TC_13SelectCityName"/>
             <class name="org.zigwheels.test.TC_14PopularModels"/>
-            <class name="org.zigwheels.test.TC_15HyndaiPopularCarsDetails"/>
+            <class name="org.zigwheels.test.TC_15HyundaiPopularCarsDetails"/>
             <class name="org.zigwheels.test.TC_16PopularCarsUnder4Lakh"/>
             <class name="org.zigwheels.test.TC_17CheapestAndCostliestCar"/>
             <class name="org.zigwheels.test.TC_18CarComparisons"/>
