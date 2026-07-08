@@ -23,7 +23,7 @@ public class TC_7UnrevealedLaunchBike extends BaseTest {
         Log.info("Total unrevealed Honda bikes under 4 Lakhs : " + unrevealedBikes.size());
 
         //  Click Honda brand filter
-        bp.clickHondaBrand();
+        //bp.clickHondaBrand();
         Assert.assertTrue(
                 driver.getCurrentUrl().contains("honda"),
                 "Honda page is not opened"
