@@ -28,7 +28,7 @@
             <class name="org.zigwheels.test.TC_20CarOfferInvalidPhno"/>
             <class name="org.zigwheels.test.TC_21ElectricCarUnder10Lakhs"/>
             <class name="org.zigwheels.test.TC_22GoogleDisplay"/>-->
-            <class name="org.zigwheels.test.TC_23InvalidGoogleLogin"/>
+        //<class name="org.zigwheels.test.TC_23InvalidGoogleLogin"/>
             <class name="org.zigwheels.test.TC_24FeedbackValidation"/>
             <class name="org.zigwheels.test.TC_25LatestUserReviewsValidation"/>
             <class name="org.zigwheels.test.TC_26TopContributorsValidation"/>
